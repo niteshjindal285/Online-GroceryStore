@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f4f6f8;
+    /* Clean off-white background */
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #065f46;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #10b981, #059669);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #059669, #047857);
+  }
+}
+
+@layer components {
+
+  /* Clean Cards (formerly Glass Card) */
+  .glass-card {
+    @apply bg-white/95 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_#0000000a] rounded-2xl;
+  }
+
+  .glass-card-solid {
+    @apply bg-white border border-gray-100 shadow-[0_8px_30px_#0000000a] hover:shadow-[0_8px_30px_#00000014] transition-shadow duration-300 rounded-2xl;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 active:scale-[0.98] transition-all duration-200 ease-out shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-emerald-50 text-emerald-700 px-6 py-3 rounded-lg font-bold hover:bg-emerald-100 active:scale-[0.98] transition-all duration-200 ease-out;
+  }
+
+  .btn-accent {
+    @apply bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 active:scale-[0.98] transition-all duration-200 ease-out shadow-sm;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-4 py-3 bg-gray-50/50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 focus:bg-white transition-all duration-300 outline-none text-gray-900 placeholder-gray-400;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-amber-500 via-orange-500 to-rose-400 bg-clip-text text-transparent;
+  }
+
+  /* Section Headers */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold font-display text-gray-900;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 max-w-2xl mx-auto;
+  }
+
+  /* Animated Underline Link */
+  .nav-link {
+    @apply relative text-gray-600 font-medium transition-colors duration-300 hover:text-emerald-600;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-300 rounded-full;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-emerald-600 font-semibold;
+  }
+
+  /* Product Card */
+  .product-card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_8px_30px_#00000014] transition-all duration-500 ease-out border border-gray-100 hover:border-emerald-100;
+  }
+
+  .product-card:hover {
+    @apply -translate-y-1 scale-[1.02];
+  }
+
+  /* Shimmer Effect */
+  .shimmer-btn {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer-btn::after {
+    content: '';
+    @apply absolute inset-0 bg-shimmer-gradient bg-[length:200%_100%] animate-shimmer opacity-0 transition-opacity duration-300;
+  }
+
+  .shimmer-btn:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-discount {
+    @apply bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg;
+  }
+
+  .badge-stock {
+    @apply bg-emerald-100 text-emerald-800;
+  }
+
+  /* Floating decorative elements */
+  .floating-dot {
+    @apply absolute rounded-full opacity-20 animate-float;
+  }
+}
+
+@layer utilities {
+
+  /* Staggered animation delays */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-800 {
+    animation-delay: 800ms;
+  }
+}

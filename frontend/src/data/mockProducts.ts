@@ -1,0 +1,6083 @@
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  rating: number | string; // Adjusted to allow string ratings like "4.9"
+  discount: number;
+  inStock: boolean;
+}
+
+export const mockProducts: Product[] = [
+{
+    "id": "394716",
+    "name": "Super Saver Almond / Badam - 500 Gm",
+    "price": 408,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255678:8E85208F2B_1.png",
+    "rating": 4.2,
+    "discount": 39,
+    "inStock": true
+},
+{
+    "id": "396417",
+    "name": "Shree Mansha Foods Mp Whole Wheat Chakki Atta - 10 Kg",
+    "price": 340,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853618:C9B30E2A6B_1.png",
+    "rating": 4.3,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "403023",
+    "name": "Fortune Refined Soyabean Oil - 750 Gm x 3",
+    "price": 393,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1758785477585:CF8B3C3EF3_1.png",
+    "rating": 4.5,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "393273",
+    "name": "Saras Shudh Ghee - 1 Ltr",
+    "price": 541,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751009427827:2B8DC1E79E_1.png",
+    "rating": 4.1,
+    "discount": 1,
+    "inStock": true
+},
+{
+    "id": "390709",
+    "name": "Parampara Refined Soyabean Oil - 750 Gm x 3",
+    "price": 357,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767876845615:AAB426696E_1.png",
+    "rating": 4,
+    "discount": 17,
+    "inStock": true
+},
+{
+    "id": "394369",
+    "name": "Laxmi Bhog Chakki Fresh Atta - 10 Kg",
+    "price": 399,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751010093129:4855D2F2E0_1.png",
+    "rating": 4.3,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "393587",
+    "name": "Amul Pure Ghee (Carton) - 1 Ltr",
+    "price": 545,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751010093034:789AFF118B_1.png",
+    "rating": 4.1,
+    "discount": 5,
+    "inStock": true
+},
+{
+    "id": "395647",
+    "name": "King's Refined Soyabean Oil  - 750 Gm",
+    "price": 120,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1762945246851408D1F4234_1.png",
+    "rating": 4.1,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "394592",
+    "name": "Parampara Refined Soyabean Oil - 750  Gm",
+    "price": 119,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358877599:AAB426696E_1.png",
+    "rating": 4.2,
+    "discount": 17,
+    "inStock": true
+},
+{
+    "id": "405910",
+    "name": "Sampoorti Kachi Ghani Mustard Oil (Pouch) - 750 Gm",
+    "price": 137,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767754401589:SD5867DDD7_1.png",
+    "rating": 4.6,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "394351",
+    "name": "Parampara Refined Soyabean Oil - 5 Ltr",
+    "price": 715,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358875390:9F0A402561_1.png",
+    "rating": 4.1,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "394055",
+    "name": "Chambal Refined Soyabean Oil - 750 Gm",
+    "price": 126,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751009426619:0C931BD190_1.png",
+    "rating": 4.8,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "400804",
+    "name": "Super Saver Masoor Malka Dal - 1 Kg",
+    "price": 99,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256593:F2DCDE881F_1.png",
+    "rating": 4.3,
+    "discount": 60,
+    "inStock": true
+},
+{
+    "id": "400211",
+    "name": "Fortune Rozana Super Basmati Rice - 5 Kg",
+    "price": 315,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753957334049:FD985FD379_1.png",
+    "rating": 4.8,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "393236",
+    "name": "Mishti Dhampur Premium Quality Sugar - 1 Kg",
+    "price": 51,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878373:B223B012EF_1.png",
+    "rating": 4.3,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "392692",
+    "name": "Tata Salt - 1 Kg",
+    "price": 26,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789175858:3C9D496158_1.png",
+    "rating": 4.7,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "394245",
+    "name": "Fortune Kachi Ghani Mustard Oil - 5 Ltr",
+    "price": 867,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751011292405:FB532D627B_1.png",
+    "rating": 4.3,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "394216",
+    "name": "Fortune Kachi Ghani Mustard Oil (Bottle) - 1 Ltr",
+    "price": 170,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1752838453172:EC6E2BACB3_1.png",
+    "rating": 4.5,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "395544",
+    "name": "Super Saver Toor / Arhar Dal - 1 Kg",
+    "price": 120,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256499:E74C229A5E_1.png",
+    "rating": 4.5,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "394730",
+    "name": "Super Saver Moong Dhuli Dal - 1 Kg",
+    "price": 111,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256603:F4B71649D4_1.png",
+    "rating": 4.5,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "394243",
+    "name": "Fortune Refined Soyabean Oil - 5 Ltr",
+    "price": 823,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751011292010:DCC51871CA_1.png",
+    "rating": 4.7,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "394359",
+    "name": "Laxmi Bhog Chakki Fresh Atta - 5 Kg",
+    "price": 205,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1726319049906:4AB10674A8_1.webp",
+    "rating": 4.9,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "394442",
+    "name": "Saras Shudh Ghee - 500 Ml",
+    "price": 273,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853912:D617F52F15_1.png",
+    "rating": 4.2,
+    "discount": 1,
+    "inStock": true
+},
+{
+    "id": "393827",
+    "name": "Sampoorti Jeera Whole / Cumin - 500 Gm",
+    "price": 168,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431687:7D17444AFB_1.png",
+    "rating": 4.7,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "395866",
+    "name": "Tagore Kachi Ghani Mustard Oil - 1 Ltr",
+    "price": 149,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789175841:3BE85A26FD_1.png",
+    "rating": 4.4,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "394771",
+    "name": "Super Saver Raisins / Kishmis - 500 Gm",
+    "price": 237,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256083:40635EBA52_1.png",
+    "rating": 4.1,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "385945",
+    "name": "Super Saver (Almond - 500 Gm + Cashew - 500 Gm) Combo Pack",
+    "price": 853,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771317873177Combo_deal52792_1.png",
+    "rating": 4.5,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "400210",
+    "name": "Fortune Mogra Basmati Rice - 10 Kg",
+    "price": 612,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761492014775:5EA697B71F_1.png",
+    "rating": 4.4,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "395642",
+    "name": "Shree Mansha Foods Mp Whole Wheat Chakki Atta - 5 Kg",
+    "price": 185,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854103:D28158C611_1.png",
+    "rating": 4.3,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "393755",
+    "name": "Tmi Colman Zahidi Dates - 500 Gm",
+    "price": 99,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789178751:92088D93F1_1.png",
+    "rating": 4,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "394116",
+    "name": "Laxmi Bhog Besan - 1 Kg",
+    "price": 95,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751009429421:3CDCA6BAB8_1.png",
+    "rating": 4.3,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "391870",
+    "name": "Tagore Kachi Ghani Mustard Oil - 1 Ltr x 3",
+    "price": 447,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767876844023:3BE85A26FD_1.png",
+    "rating": 4.1,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "393656",
+    "name": "Amul Cow Ghee (Carton) - 1 Ltr",
+    "price": 610,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751011291218:927D38073D_1.png",
+    "rating": 4.1,
+    "discount": 5,
+    "inStock": true
+},
+{
+    "id": "393635",
+    "name": "Laxmi Bhog Sooji - 1 Kg",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1741596846075:8C374CA701_1.png",
+    "rating": 4.7,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "398179",
+    "name": "Fortune Mogra Basmati Rice - 5 Kg",
+    "price": 312,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761492016260:F870A3D320_1.png",
+    "rating": 4.3,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "396052",
+    "name": "Madhur Sugar - 5 Kg",
+    "price": 259,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/2DE58F3A14_1.png",
+    "rating": 4,
+    "discount": 17,
+    "inStock": true
+},
+{
+    "id": "393916",
+    "name": "Shree Ram Mirchi Powder - 500 Gm",
+    "price": 130,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852607:777F200A0F_1.png",
+    "rating": 4.2,
+    "discount": 48,
+    "inStock": true
+},
+{
+    "id": "393544",
+    "name": "Krishna Ghee - 900 Ml",
+    "price": 545,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767274634824685ACFE4F3_1.png",
+    "rating": 4.1,
+    "discount": 17,
+    "inStock": true
+},
+{
+    "id": "395913",
+    "name": "Saffola Active Oil - 850 Gm",
+    "price": 144,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1762672241430375C32A47C_1.png",
+    "rating": 4.8,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "393094",
+    "name": "Sampoorti Iodised Salt - 1 Kg",
+    "price": 9,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768306802561:DFD7BDE8E2_1.png",
+    "rating": 4.5,
+    "discount": 70,
+    "inStock": true
+},
+{
+    "id": "405999",
+    "name": "Sampoorti Kachi Ghani Mustard Oil (Pouch) - 750 Gm x 3",
+    "price": 410,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767754401589:SD5867DDD7_1.png",
+    "rating": 4.6,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "394805",
+    "name": "Sona Sikka Refined Groundnut Oil - 5 Ltr",
+    "price": 1080,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767779916051:ED34B15255_1.png",
+    "rating": 4.2,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "395339",
+    "name": "Super Saver Kabuli Chana Small - 1 Kg",
+    "price": 105,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256299:C83832FE12_1.png",
+    "rating": 4.7,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "393966",
+    "name": "Aravalli Mogra Basmati Rice - 10 Kg",
+    "price": 510,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761492015071:7D4B7C81C7_1.png",
+    "rating": 4.1,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "400888",
+    "name": "Sampoorti Kachi Ghani Mustard Oil (Bottle) - 850 Gm",
+    "price": 149,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767754400794:ZAF9223C95_1.png",
+    "rating": 4.9,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "397917",
+    "name": "King's Refined Soyabean Oil (pouch) - 750 Gm x 3",
+    "price": 360,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17646712733451.png",
+    "rating": 4.8,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "394655",
+    "name": "Sampoorti Turmeric / Haldi Powder - 500 Gm",
+    "price": 135,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432172:86AD4BA0F7_1.png",
+    "rating": 4.3,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "399428",
+    "name": "Super Saver Mixed Dryfruits - 500 Gm",
+    "price": 235,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255993:37911B1963_1.png",
+    "rating": 4.9,
+    "discount": 51,
+    "inStock": true
+},
+{
+    "id": "391472",
+    "name": "Fortune Kachi Ghani Mustard Oil (Bottle) - 1 Ltr x 3",
+    "price": 510,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1752838453172:EC6E2BACB3_1.png",
+    "rating": 4.5,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "405927",
+    "name": "Shree Mansha Food Regular Poha - 800 Gm",
+    "price": 45,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767596301947N0A67EB720_1.png",
+    "rating": 4.2,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "400065",
+    "name": "Super Saver Mixed Dal - 1 Kg",
+    "price": 116,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255579:5C8827D266_1.png",
+    "rating": 4.4,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "394314",
+    "name": "Sampoorti Phool Makhana - 250 Gm",
+    "price": 335,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725904:CADDEF1A4C_1.png",
+    "rating": 4.7,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "393566",
+    "name": "Sampoorti Jeera Whole / Cumin - 200 Gm",
+    "price": 80,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432363:1192D89E3F_1.png",
+    "rating": 4.6,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393897",
+    "name": "Sampoorti Phool Makhana - 100 Gm",
+    "price": 128,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725815:C628948FE7_1.png",
+    "rating": 4.2,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "394674",
+    "name": "Sampoorti Jeera Whole / Cumin - 100 Gm",
+    "price": 42,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432971:BE61D89553_1.png",
+    "rating": 4.8,
+    "discount": 47,
+    "inStock": true
+},
+{
+    "id": "400887",
+    "name": "Fortune Rozana Super Basmati Rice - 1 Kg",
+    "price": 68,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753957333960:D55801E0DE_1.png",
+    "rating": 4.6,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "394128",
+    "name": "Sampoorti Chana Dal - 1 Kg",
+    "price": 99,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768285917324:22C7873ABA_1.png",
+    "rating": 4.6,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "394699",
+    "name": "Fortune Sun Lite Refined Sunflower Oil - 800 Gm",
+    "price": 159,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1745846109567:B11DBC1F33_1.png",
+    "rating": 4.5,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "394667",
+    "name": "Fortune Rice Bran Health Oil (pouch) - 870 Gm",
+    "price": 154,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761135461094:B876140DED_1.png",
+    "rating": 4.6,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "393185",
+    "name": "Fortune Rice Bran Health Oil (Jar) - 4.35 Kg",
+    "price": 797,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1743833707913:51E3B2B0FD_1.png",
+    "rating": 4.3,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "393316",
+    "name": "Haryana King 1121 Mini Mogra 2 Basmati Rice (Tukdi) - 10 Kg",
+    "price": 390,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504985303:638FDAC443_1.png",
+    "rating": 4.3,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "396188",
+    "name": "Aravalli Mini Mogra (Rozana) Basmati Rice - 10 Kg",
+    "price": 370,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761487224357:7ACF317C0E_1.png",
+    "rating": 4.6,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "406151",
+    "name": "Super Saver Desi Moong Dal - 1 Kg",
+    "price": 99,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768528732575SF7414ABEC_1.png",
+    "rating": 4.3,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "394424",
+    "name": "Sampoorti Moong Chilka Dal - 1 Kg",
+    "price": 135,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857476:73168348F8_1.png",
+    "rating": 4.9,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "393264",
+    "name": "Pawan Mustard Oil (Bottle) - 840 Gm",
+    "price": 153,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358874481:6E12860B91_1.png",
+    "rating": 4.5,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394636",
+    "name": "India Gate Mogra Basmati Rice - 10 Kg",
+    "price": 689,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741262306:8FA25F954A_1.png",
+    "rating": 4.2,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "394604",
+    "name": "Sampoorti Moong Dhuli Dal - 500 Gm",
+    "price": 69,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856592:679AAA39E5_1.png",
+    "rating": 4.4,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394374",
+    "name": "Aravalli Mini Mogra 2nd Basmati Rice (Broken) - 10 Kg",
+    "price": 390,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761487226034:E4F244E534_1.png",
+    "rating": 4.4,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "393674",
+    "name": "Sampoorti Kala Chana - 1 Kg",
+    "price": 94,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768285917334:7703DE8632_1.png",
+    "rating": 4.8,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "396601",
+    "name": "Pinkcity Wellness Filtered Groundnut Oil - 1 Ltr",
+    "price": 177,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/B0C0AB5BA7_1.png",
+    "rating": 4,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "398143",
+    "name": "Sampoorti 400 Count Cashew / Kaju - 100 Gm",
+    "price": 105,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725626:BE78066CE6_1.png",
+    "rating": 4.9,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "395236",
+    "name": "Sampoorti Chilli / Mirch Powder - 500 Gm",
+    "price": 105,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433560:E58618BA5D_1.png",
+    "rating": 4.6,
+    "discount": 48,
+    "inStock": true
+},
+{
+    "id": "394555",
+    "name": "Sampoorti Pulav Basmati Rice - 5 Kg",
+    "price": 309,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305912920:775B67DD97_1.png",
+    "rating": 4.9,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394598",
+    "name": "India Gate Daily Delight Basmati Rice - 5 Kg",
+    "price": 329,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751011291303:96776DDB71_1.png",
+    "rating": 4.4,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "394565",
+    "name": "Sampoorti Groundnut - 500 Gm",
+    "price": 88,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856682:758FEE5984_1.png",
+    "rating": 4.9,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "393672",
+    "name": "Sampoorti Poppy Seeds / khus Khus - 100 Gm",
+    "price": 270,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432571:96497DF114_1.png",
+    "rating": 4.4,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "393646",
+    "name": "Laxmi bhog Maida - 1 Kg",
+    "price": 52,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1742210634663:103DBD5C59_1.png",
+    "rating": 4.3,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394649",
+    "name": "Catch Turmeric Powder - 200 Gm",
+    "price": 54,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603571891:80FD054C20_1.webp",
+    "rating": 4.6,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "395833",
+    "name": "Dhara Filtered Groundnut Oil - 1 Ltr",
+    "price": 194,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/B9E15EB4D4_1.png",
+    "rating": 4.8,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "395843",
+    "name": "Dhara Filtered Groundnut Oil - 5 Ltr",
+    "price": 990,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/7302B529BD_1.png",
+    "rating": 4.9,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "394044",
+    "name": "Tata Salt - 2 Kg",
+    "price": 51,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789180554:D5F6BEA8FB_1.png",
+    "rating": 4.8,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "393861",
+    "name": "India Gate Everyday Basmati Rice - 5 Kg",
+    "price": 349,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741263403:89314A10B7_1.png",
+    "rating": 4.1,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "393512",
+    "name": "Aravalli Dubar Basmati Rice - 5 Kg",
+    "price": 275,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761487224452:23C30047F0_1.png",
+    "rating": 4.1,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "406118",
+    "name": "Prov Select Cashews - 500 Gm",
+    "price": 462,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750098814:W48C462451_1.png",
+    "rating": 4.9,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "393926",
+    "name": "Shree Ram Mirchi Powder - 200 Gm",
+    "price": 47,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854313:DB04C110A4_1.png",
+    "rating": 4.5,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "394115",
+    "name": "Sampoorti Green Moong Whole - 500 Gm",
+    "price": 68,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288722811:51D70F87EC_1.png",
+    "rating": 4.3,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "394575",
+    "name": "Sampoorti Black Pepper Whole - 100 Gm",
+    "price": 119,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432176:92B9B73828_1.png",
+    "rating": 4.8,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "394582",
+    "name": "Sampoorti Indian Raisins / Kishmis - 100 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288720898:6BB1CA389C_1.png",
+    "rating": 4.4,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "403181",
+    "name": "Khetika Premium Cashew Pouch - 500 Gm",
+    "price": 414,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759472472663:CFDE686D94_1.png",
+    "rating": 4.8,
+    "discount": 48,
+    "inStock": true
+},
+{
+    "id": "393986",
+    "name": "Shree Ram Haldi Powder - 500 Gm",
+    "price": 125,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854919:F629DB958F_1.png",
+    "rating": 4.3,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "396335",
+    "name": "Amul Pure Ghee (Tetra Pack) - 500 Ml",
+    "price": 292,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/EBD8E9DEBE_1.webp",
+    "rating": 4.6,
+    "discount": 5,
+    "inStock": true
+},
+{
+    "id": "394234",
+    "name": "Sampoorti Moong Dhuli Dal - 1 Kg",
+    "price": 140,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284855181:22E083213C_1.png",
+    "rating": 4.8,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "394292",
+    "name": "Sampoorti Walnut / Akhrot Giri Tudki - 500 Gm",
+    "price": 610,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288721819:8AC52141BB_1.png",
+    "rating": 4,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "394120",
+    "name": "Sampoorti NP California Almonds / Badam - 250 Gm",
+    "price": 265,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1738062475813:4B37D64E4D_1.webp",
+    "rating": 4.3,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "363574",
+    "name": "Sampoorti Long Grain Rice - 1 Kg (buy 1 Get 1 Free)",
+    "price": 120,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1768317316688:76D189DA5E_1.png",
+    "rating": 4.8,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393318",
+    "name": "Shree Ram Haldi Powder - 200 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853620:CDCF8E0558_1.png",
+    "rating": 4.2,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "393087",
+    "name": "Pawan Kachi Ghani Mustard Oil (pouch) - 840 Gm",
+    "price": 150,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358877102:11997C73DF_1.png",
+    "rating": 4.3,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394108",
+    "name": "Sampoorti Pumpkin Seeds - 100 Gm",
+    "price": 65,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288724803:970209F2B4_1.png",
+    "rating": 4.4,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "394677",
+    "name": "Fortune Filtered Groundnut Oil - 4.35 Kg",
+    "price": 910,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724683332136:190A21737F_1.webp",
+    "rating": 4.6,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "394194",
+    "name": "Sona Sikka Refined Groundnut Oil - 1 Ltr",
+    "price": 215,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767779915762:E121E93846_1.png",
+    "rating": 4.5,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "394838",
+    "name": "Parle-G Select Chakki Atta - 10 Kg",
+    "price": 376,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358873880:4FC75FB55D_1.png",
+    "rating": 4.3,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "390509",
+    "name": "Sampoorti CTC Combo (Mirchi + Dhania + Haldi) Powder - 500 Gm Each",
+    "price": 336,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1765949973413Combo_deal52833_1.png",
+    "rating": 4.8,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "406004",
+    "name": "Fortune Kachi Ghani Pure Mustard Oil (Bottle) - 500 Ml",
+    "price": 89,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768293464561296B7800E0_1.png",
+    "rating": 4.7,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "394094",
+    "name": "Engine Agmark Kachi Mustard Oil - 5 Ltr",
+    "price": 997,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1727331932046:449A14C09C_1.webp",
+    "rating": 4.3,
+    "discount": 9,
+    "inStock": true
+},
+{
+    "id": "394539",
+    "name": "Engine Brand Mustard Oil (Bottle) - 1 Ltr",
+    "price": 198,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725687583485:A44332E5E0_1.webp",
+    "rating": 4.3,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "395922",
+    "name": "Saffola Gold Edible Oil - 1 Ltr",
+    "price": 207,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767609151700:DF94F0E8C2_1.png",
+    "rating": 4.8,
+    "discount": 5,
+    "inStock": true
+},
+{
+    "id": "394656",
+    "name": "Sampoorti Green Elaichi / Cardamom - 50 Gm",
+    "price": 232,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431667:6DCF30D6AB_1.png",
+    "rating": 4,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "393359",
+    "name": "Haryana King Mogra Basmati Rice - 10 Kg",
+    "price": 525,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761492214275E626CB128E_1.png",
+    "rating": 4.8,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "394321",
+    "name": "Sampoorti Chia Seeds - 100 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288723318:322E178747_1.png",
+    "rating": 4,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "394625",
+    "name": "Sampoorti Green Elaichi / Cardamom - 10 Gm",
+    "price": 51,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431963:28BB694D40_1.png",
+    "rating": 4.6,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "393232",
+    "name": "Patanjali Cow Ghee - 900 Ml",
+    "price": 725,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358873889:2C4517E7CB_1.png",
+    "rating": 4.4,
+    "discount": 0,
+    "inStock": true
+},
+{
+    "id": "393294",
+    "name": "Pawan Mustard Oil (Jar) - 4.2 Kg",
+    "price": 765,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358875379:9ECD8F583E_1.png",
+    "rating": 4.6,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394641",
+    "name": "Catch Kashmiri Mirch Powder - 100 Gm",
+    "price": 77,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724687050060:4C75248A85_1.webp",
+    "rating": 4.6,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "400885",
+    "name": "Fortune Mini Mogra Basmati Rice - 5 Kg",
+    "price": 285,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753957333960:F7BFF5F2FD_1.png",
+    "rating": 4.4,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "380369",
+    "name": "Shree Ram Spices Combo (Mirchi 200 Gm + Haldi 200 Gm + Dhaniya 200 Gm)",
+    "price": 122,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760442621393Combo_deal52770.png",
+    "rating": 4.9,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "394024",
+    "name": "Shree Ram Dhaniya Powder - 200 Gm",
+    "price": 34,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854205:DA01F7FE8C_1.png",
+    "rating": 4.5,
+    "discount": 54,
+    "inStock": true
+},
+{
+    "id": "395022",
+    "name": "Amul Ghee Tin - 1 Ltr",
+    "price": 585,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/0DC1DA0510_1.webp",
+    "rating": 4.7,
+    "discount": 5,
+    "inStock": true
+},
+{
+    "id": "394991",
+    "name": "Sampoorti Coriander / Dhania Powder - 500 Gm",
+    "price": 85,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432462:51618E7BA1_1.png",
+    "rating": 4.4,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "393366",
+    "name": "Fortune Filtered Groundnut Oil - 870 Gm",
+    "price": 180,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767439556072FE8CD2DFBA_1.png",
+    "rating": 4.6,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "400857",
+    "name": "Sampoorti Mini Mogra 2nd Basmati Rice - 10 Kg",
+    "price": 395,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305913942:25515835FC_1.png",
+    "rating": 4.3,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "401298",
+    "name": "Sampoorti 400 Count Cashew / Kaju - 250 Gm",
+    "price": 279,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288727305:LFC7AF94B0_1.png",
+    "rating": 4.7,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "393255",
+    "name": "Aravalli Long Grain Rice - 1 Kg",
+    "price": 61,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761487224358:9F131D9EE8_1.png",
+    "rating": 4.6,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "391477",
+    "name": "Pawan Refined Soyabean Oil - 750 Gm x 3",
+    "price": 366,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767876844816:7DB5906D67_1.png",
+    "rating": 4.7,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "393415",
+    "name": "Ujjawal Poha - 800 Gm",
+    "price": 64,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767940298626F844B4C9D4_1.png",
+    "rating": 4.7,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "394163",
+    "name": "Sampoorti Masoor Malka Dal - 1 Kg",
+    "price": 104,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284855672:061D5B1C47_1.png",
+    "rating": 4.2,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "403268",
+    "name": "Khetika Naturale Popular California Almonds - 500 Gm",
+    "price": 427,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759227490957:I29C440D86_1.png",
+    "rating": 4.8,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "391475",
+    "name": "Pawan Kachi Ghani Mustard Oil (pouch) - 840 Gm x 3",
+    "price": 449,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767876845213:11997C73DF_1.png",
+    "rating": 4.6,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394370",
+    "name": "Fortune Sunlite Refined Sunflower Oil - 4.35 Kg",
+    "price": 895,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1746535993492:98F2096C64_1.png",
+    "rating": 4.5,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394166",
+    "name": "Pawan Refined Soyabean Oil - 750 Gm",
+    "price": 122,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358875086:7DB5906D67_1.png",
+    "rating": 4.2,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "403687",
+    "name": "Sampoorti Jeera Powder - 100 Gm",
+    "price": 43,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432458:9919E15A14_1.png",
+    "rating": 4.6,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "403301",
+    "name": "Pawan Refined Groundnut Oil (bottle) - 840 Gm",
+    "price": 164,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358875491:12C94705D9_1.png",
+    "rating": 4.4,
+    "discount": 39,
+    "inStock": true
+},
+{
+    "id": "393849",
+    "name": "Catch Super Garam Masala Powder - 200 Gm",
+    "price": 91,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751011528945:CA4B32238E_1.png",
+    "rating": 4.9,
+    "discount": 9,
+    "inStock": true
+},
+{
+    "id": "393425",
+    "name": "Catch Compounded Hing - 25 Gm",
+    "price": 57,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603572213:06950612B8_1.webp",
+    "rating": 4.2,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "393563",
+    "name": "Sampoorti Ajwain / Carrom Seeds - 100 Gm",
+    "price": 33,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433855:FD93CC86E4_1.png",
+    "rating": 4.2,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "394257",
+    "name": "Catch Red Chilli Powder - 200 Gm",
+    "price": 91,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/21CBCBADB8_1.webp",
+    "rating": 4.2,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "393603",
+    "name": "Sampoorti Long Grain Rice - 1 Kg",
+    "price": 62,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305912447:76D189DA5E_1.png",
+    "rating": 4.7,
+    "discount": 48,
+    "inStock": true
+},
+{
+    "id": "394105",
+    "name": "Laxmi Bhog Besan - 500 Gm",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771307072088A3D32C36E2_1.png",
+    "rating": 4.3,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "363575",
+    "name": "Aravalli Long Grain Rice - 1 Kg (Buy 1 Get 1 Free)",
+    "price": 115,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855298224:9F131D9EE8_1.png",
+    "rating": 4.6,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393251",
+    "name": "Super Sarvottam Rice Bran Oil (Pouch) - 815 Gm",
+    "price": 135,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789180740:DDD7055C52_1.png",
+    "rating": 4,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "406006",
+    "name": "Mishti Dhampur Sugar - 1 Kg & King's Refined Soyabean Oil  - 750 Gm & Sampoorti Long Grain Rice - 1 Kg",
+    "price": 232,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1768303877051:JAN_Combo_Deal48.png",
+    "rating": 4.8,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "393952",
+    "name": "Sampoorti Green Elaichi / Cardamom - 20 Gm",
+    "price": 97,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432171:90EC457F16_1.png",
+    "rating": 4.4,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "394406",
+    "name": "Sampoorti Black Pepper Whole - 50 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432874:A300AD4F97_1.png",
+    "rating": 4.6,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "396042",
+    "name": "Madhur Sugar - 1 Kg",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/AA039466EA_1.png",
+    "rating": 4.8,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "393975",
+    "name": "Everest Kashmirilal Brilliant Red Chilli Powder - 100 Gm",
+    "price": 86,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725687583180:9B4F06499F_1.webp",
+    "rating": 4.2,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "401004",
+    "name": "Sampoorti Kachi Ghani Mustard Oil (Bottle) - 850 Gm x 3",
+    "price": 446,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1768317320681:ZAF9223C95_1.png",
+    "rating": 4.1,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "400927",
+    "name": "Eagle Jeera Powder - 100 Gm",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036381003:KC60F8088D_1.png",
+    "rating": 4.2,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394102",
+    "name": "Catch Jeera Powder - 100 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/4E814E453D_1.webp",
+    "rating": 4.1,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "395867",
+    "name": "Dhara Oil Kachi Ghani Mustard Jar - 4.55 Kg",
+    "price": 899,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/8DEEA66833_1.png",
+    "rating": 4.7,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394615",
+    "name": "Sampoorti Rajma Jammu Red - 500 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284853877:4C6B1CC3ED_1.png",
+    "rating": 4.4,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "406754",
+    "name": "Tmi Colman Arabian Dates - 250 Gm",
+    "price": 44,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1770615079696:TF3ADA120F_1.png",
+    "rating": 4.8,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393393",
+    "name": "Sampoorti Mixed Dryfruits - 200 Gm",
+    "price": 140,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288720418:3B95B32AEF_1.png",
+    "rating": 4.3,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394647",
+    "name": "Sampoorti Masoor Black Whole - 1 Kg",
+    "price": 97,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284853773:2C496BE532_1.png",
+    "rating": 4.4,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "395412",
+    "name": "Sampoorti NP California Almonds / Badam - 100 Gm",
+    "price": 108,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288723599:995D9CFAD8_1.png",
+    "rating": 4.4,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "395855",
+    "name": "Dhara Oil Kachi Ghani Mustard (Bottle) - 1 Ltr",
+    "price": 175,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17569827930374898502C5E_1.png",
+    "rating": 4.6,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "393735",
+    "name": "Sampoorti Urad Dal Chilka Black - 500 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857695:BEDEF6D72B_1.png",
+    "rating": 4.5,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "394594",
+    "name": "Sampoorti Moong Chilka Dal - 500 Gm",
+    "price": 72,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284858186:D50F970354_1.png",
+    "rating": 4.3,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "394165",
+    "name": "Sampoorti Fennel / Saunf Whole Big- 200 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432759:4449791EC1_1.png",
+    "rating": 4.3,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "391476",
+    "name": "Pawan Mustard Oil (Bottle) - 840 Gm x 3",
+    "price": 459,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767876844313:6E12860B91_1.png",
+    "rating": 4.3,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "393542",
+    "name": "Krishna Ghee - 450 Ml",
+    "price": 285,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754628537468:59AA7F7872_1.png",
+    "rating": 4.1,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "400926",
+    "name": "Eagle Hing - 50 Gm",
+    "price": 100,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036380718:E6C3C311C4_1.png",
+    "rating": 4.4,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393515",
+    "name": "Laxmi bhog Daliya - 1 Kg",
+    "price": 58,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754456901237:67B545507D_1.png",
+    "rating": 4.2,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "403564",
+    "name": "Naman Desi Ghee - 900 Ml",
+    "price": 545,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358879186:O1A27C86D3_1.png",
+    "rating": 4.5,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "393116",
+    "name": "Catch Bandhani Hing - 100 Gm",
+    "price": 204,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1727182758776:D1642396D7_1.webp",
+    "rating": 4.7,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "401063",
+    "name": "Shree Ram Bandhani Hing - 100 Gm",
+    "price": 103,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768855302:S011154EE5_1.png",
+    "rating": 4.3,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "395865",
+    "name": "Shree Mansha Foods Maida - 500 Gm",
+    "price": 26,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853008:207272B220_1.png",
+    "rating": 4.1,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394545",
+    "name": "Sampoorti Chana Dal - 500 Gm",
+    "price": 54,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768285917349:DF9B0BBC0B_1.png",
+    "rating": 4,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "394542",
+    "name": "Sampoorti Dry Dates / chuara - 200 Gm",
+    "price": 67,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288726412:E4E43BAA0E_1.png",
+    "rating": 4.9,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "393769",
+    "name": "Milkfood Ghee (Carton) - 450 Ml",
+    "price": 290,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878590:DAA262F47A_1.png",
+    "rating": 4.9,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "406281",
+    "name": "Sampoorti Sugar - 5 Kg",
+    "price": 249,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1769242723323:EA34C628E4_1.png",
+    "rating": 4.8,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "394760",
+    "name": "Sampoorti Sabudana - 500 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305911925:7DAA304A85_1.png",
+    "rating": 4.4,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "400615",
+    "name": "Tata Sampann Kala Chana - 500 Gm",
+    "price": 65,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789181063:ECDF55E8FB_1.png",
+    "rating": 4.3,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "400931",
+    "name": "Eagle Super Garam Masala - 100 Gm",
+    "price": 38,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036381100:N2FF1846A9_1.png",
+    "rating": 4.5,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394155",
+    "name": "Sampoorti Fennel / Saunf Whole Big- 100 Gm",
+    "price": 37,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432057:63FDA62F2D_1.png",
+    "rating": 4.9,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "395262",
+    "name": "Sampoorti Toor / Arhar Dal Standard - 500 GM",
+    "price": 78,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284858681:E75EA4E9E4_1.png",
+    "rating": 4.4,
+    "discount": 48,
+    "inStock": true
+},
+{
+    "id": "374770",
+    "name": "Tata I Shakti Salt - 1 Kg x 3",
+    "price": 27,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767876844028:05BC7E577B_1.png",
+    "rating": 4.4,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "394137",
+    "name": "Sampoorti Urad Dal White - 500 Gm",
+    "price": 80,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856472:452CCB3360_1.png",
+    "rating": 4.3,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "393867",
+    "name": "Tata Salt Lite - 1 Kg",
+    "price": 42,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789178055:778EABB882_1.png",
+    "rating": 4.1,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "394156",
+    "name": "Catch Red Chilli Powder - 500 Gm",
+    "price": 210,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751009429825:05D4CB092C_1.png",
+    "rating": 4.4,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "406122",
+    "name": "Prov Select Whole Natural Walnut - 750 Gm",
+    "price": 442,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470774537:HCD375C1DC_1.png",
+    "rating": 4.7,
+    "discount": 53,
+    "inStock": true
+},
+{
+    "id": "394318",
+    "name": "India Gate Mogra Basmati Rice - 5 Kg",
+    "price": 330,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741263592:B323CBABDE_1.png",
+    "rating": 4.6,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "393200",
+    "name": "Krishna Ghee - 200 Ml",
+    "price": 130,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1764570115208:8D362F2ABE_1.png",
+    "rating": 4.7,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "394572",
+    "name": "Sampoorti Laung / Clove - 50 Gm",
+    "price": 69,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432275:274DA83DD8_1.png",
+    "rating": 4.6,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "401093",
+    "name": "Eagle Kashmiri Mirch - 100 Gm",
+    "price": 67,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1751690708484:0BEDBAAF5A_1.png",
+    "rating": 4.7,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394530",
+    "name": "Sampoorti Black Raisins / Kishmis - 100 Gm",
+    "price": 57,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288723419:539BFAA4E0_1.png",
+    "rating": 4.5,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "394435",
+    "name": "Sampoorti Kala Chana - 500 Gm",
+    "price": 58,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768285917419:DF180C71D8_1.png",
+    "rating": 4.8,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "406121",
+    "name": "Prov Select Mix Dry Fruit - 500 Gm",
+    "price": 284,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750099520:Y754513492_1.png",
+    "rating": 4.7,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "394127",
+    "name": "Sampoorti Dalchini / Cinnamon Stick - 50 Gm",
+    "price": 29,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433752:F6D3F25944_1.png",
+    "rating": 4.1,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "394718",
+    "name": "Sampoorti Coconut Powder - 100 Gm",
+    "price": 56,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431573:5EDD4E5E1E_1.png",
+    "rating": 4.6,
+    "discount": 6,
+    "inStock": true
+},
+{
+    "id": "401203",
+    "name": "Shree Mansha Foods Combo (Sooji - 500 Gm + Maida - 500 Gm + Besan - 500 Gm)",
+    "price": 89,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756293133396Combo_deal52942.png",
+    "rating": 4.5,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "394082",
+    "name": "Hilton Pink Rock Salt - 1 Kg",
+    "price": 59,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1728020230851:C91CB65E75_1.webp",
+    "rating": 4.6,
+    "discount": 54,
+    "inStock": true
+},
+{
+    "id": "394357",
+    "name": "India Gate Basmati Rice (Rozana) - 5 Kg",
+    "price": 423,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759066086082:D9D2B1896D_1.png",
+    "rating": 4.6,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "405957",
+    "name": "Arawali Sugar Bura - 1 Kg",
+    "price": 59,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759843191488:C1A6FCAD69_1.png",
+    "rating": 4.5,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "394413",
+    "name": "Sampoorti Red Chilli Whole Stemless - 50 Gm",
+    "price": 24,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431263:2FE96F67FD_1.png",
+    "rating": 4,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "395254",
+    "name": "Sampoorti Toor / Arhar Dal Standard - 1Kg",
+    "price": 140,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857789:C771C892DA_1.png",
+    "rating": 4.3,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "393413",
+    "name": "Sampoorti Rajma Chitra - 500 Gm",
+    "price": 87,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857877:C6006E974C_1.png",
+    "rating": 4.4,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "393076",
+    "name": "Aravalli Long Grain Rice - 5 Kg",
+    "price": 305,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504986087:36353AA09E_1.png",
+    "rating": 4.8,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "393066",
+    "name": "India Gate Basmati Rice Mini Mogra - 5 Kg",
+    "price": 302,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1726319050902:DC8B0A33AE_1.webp",
+    "rating": 4.6,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "395050",
+    "name": "Sampoorti Masoor Malka Dal - 500 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288726210:D3ABCA0C17_1.png",
+    "rating": 4.8,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "393376",
+    "name": "Sampoorti Soya Wadi - 200 Gm",
+    "price": 23,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857380:149908AF8B_1.png",
+    "rating": 4.8,
+    "discount": 64,
+    "inStock": true
+},
+{
+    "id": "393643",
+    "name": "Sampoorti White Til - 100 Gm",
+    "price": 29,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432073:71C2030835_1.png",
+    "rating": 4.2,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "394303",
+    "name": "Daawat Sehat/Rozana Mini Mogra Basmati Rice - 10 Kg",
+    "price": 609,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715509014:C9A5563680_1.png",
+    "rating": 4.3,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "394421",
+    "name": "Daawat Rozana Super Basmati Rice - 5 Kg",
+    "price": 338,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715509905:EC29D7DABC_1.png",
+    "rating": 4.8,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "401064",
+    "name": "Shree Ram Bandhani Hing - 50 Gm",
+    "price": 54,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768855194:P4EE9099A0_1.png",
+    "rating": 4.7,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "394019",
+    "name": "Everest Tikhalal Red Chilli Powder - 200 Gm",
+    "price": 91,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725687583286:24E9BD5F51_1.webp",
+    "rating": 4.7,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "395469",
+    "name": "Tata I Shakti Salt - 1 Kg",
+    "price": 9,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789176157:05BC7E577B_1.png",
+    "rating": 4.9,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "406120",
+    "name": "Prov Select Indian Raisin - 500 Gm",
+    "price": 278,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750097200:H523FE70AB_1.png",
+    "rating": 4.7,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "395272",
+    "name": "Sampoorti Rozana Silver Rice - 5 Kg",
+    "price": 294,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305912945:781D7DEA85_1.png",
+    "rating": 4.5,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "395452",
+    "name": "Sampoorti Soya Wadi - 500 Gm",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768319567071EEED30BA55_1.png",
+    "rating": 4.6,
+    "discount": 57,
+    "inStock": true
+},
+{
+    "id": "393810",
+    "name": "Catch Kitchen King Masala - 100 Gm",
+    "price": 73,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724687050555:08261FF90C_1.webp",
+    "rating": 4.2,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "399899",
+    "name": "Sampoorti Chilli / Mirch Powder - 200 Gm",
+    "price": 69,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300434063:XF489EEAA6_1.png",
+    "rating": 4.6,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "393930",
+    "name": "Sampoorti Methi Dana / Fenugreek Whole - 200 Gm",
+    "price": 25,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433376:DF87557B04_1.png",
+    "rating": 4.1,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "394626",
+    "name": "Sampoorti Coriander / Dhania Whole- 200 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431104:0EFE0C1454_1.png",
+    "rating": 4.3,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "393422",
+    "name": "Sampoorti Soyabean Whole - 500 Gm",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284853990:5DFBF0E1B6_1.png",
+    "rating": 4.2,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394553",
+    "name": "Sampoorti Kabuli Chana Regular - 500 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284858182:D6C231FA06_1.png",
+    "rating": 4.7,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394682",
+    "name": "Scooter Vanaspati Ghee - 1 Ltr",
+    "price": 134,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851705:9F39244973_1.png",
+    "rating": 4.5,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "393924",
+    "name": "Everest Black Pepper Powder - 50 Gm",
+    "price": 82,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725732818944:D7E92E3746_1.webp",
+    "rating": 4.9,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394109",
+    "name": "Hilton Notlih Rock Salt -1 Kg",
+    "price": 46,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/offerImage/17260567440E56E31C49_1.webp",
+    "rating": 4.4,
+    "discount": 54,
+    "inStock": true
+},
+{
+    "id": "394251",
+    "name": "Catch Sabzi Masala - 100 Gm",
+    "price": 58,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603572913:E01A22CAE2_1.webp",
+    "rating": 4.7,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "399897",
+    "name": "Sampoorti Turmeric / Haldi Powder - 200 Gm",
+    "price": 52,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433976:S18A440D26_1.png",
+    "rating": 4.8,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "401342",
+    "name": "Sampoorti Parmal Rice - 10 Kg",
+    "price": 445,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305915333:WEE81324D1_1.png",
+    "rating": 4.5,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "394799",
+    "name": "Sampoorti Kabuli Chana Small - 500 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857583:B51642FB63_1.png",
+    "rating": 4.3,
+    "discount": 57,
+    "inStock": true
+},
+{
+    "id": "393956",
+    "name": "Everest Garam Masala - 50 Gm",
+    "price": 47,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1763817715673A5500AC37D_1.png",
+    "rating": 4.7,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "400886",
+    "name": "Fortune Rozana Gold Basmati Rice - 1 Kg",
+    "price": 82,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753957336146:YC8525AAA2_1.png",
+    "rating": 4.5,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "392744",
+    "name": "Eagle Kashmiri Mirch - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 100,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299122:0BEDBAAF5A_1.png",
+    "rating": 4.4,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "406115",
+    "name": "Prov Select Almond - 200 Gm",
+    "price": 184,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750097809:O435BC54C3_1.png",
+    "rating": 4.5,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "393342",
+    "name": "Catch Chat Masala Sprinklers - 50 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818864907:A22C6C0308_1.png",
+    "rating": 4.5,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "406114",
+    "name": "Prov Premium Walnut Extra Light Halves - 250 Gm",
+    "price": 351,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750096222:C5EB8A153D_1.png",
+    "rating": 4.6,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "394086",
+    "name": "Sampoorti Urad Whole Black - 500 Gm",
+    "price": 59,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284853777:2FCCA36B4A_1.png",
+    "rating": 4.8,
+    "discount": 48,
+    "inStock": true
+},
+{
+    "id": "395410",
+    "name": "Lion Deseeded Dates (Refill Pack) - 500 Gm",
+    "price": 145,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/F91F317DB6_1.webp",
+    "rating": 4.3,
+    "discount": 0,
+    "inStock": true
+},
+{
+    "id": "393337",
+    "name": "Ramdev Hing - 50 Gm",
+    "price": 130,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767609151483:AFBA290586_1.png",
+    "rating": 4.6,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "393552",
+    "name": "Daawat Rozana Super Basmati Rice - 1 Kg",
+    "price": 77,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715508622:443004FD67_1.png",
+    "rating": 4.9,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "406169",
+    "name": "Prov Zahidi Dates 500 Gm (Pack Of 2) - 1 Kg",
+    "price": 194,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750098313:U8A58D6B27_1.png",
+    "rating": 4.8,
+    "discount": 51,
+    "inStock": true
+},
+{
+    "id": "394009",
+    "name": "Everest Tikhalal Red Chilli Powder - 100 Gm",
+    "price": 51,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725687583081:7ADF44BF27_1.webp",
+    "rating": 4.2,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "393662",
+    "name": "Shyam Asofoetida (Hing) Powder - 50 Gm",
+    "price": 83,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851094:02CA733CD4_1.png",
+    "rating": 4.6,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "406116",
+    "name": "Prov Select California Np Almond - 500 Gm",
+    "price": 451,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470775532:SBED040EC1_1.png",
+    "rating": 4.4,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "406123",
+    "name": "Prov Whole Natural Arabian Dates/Khajoor Everyday Nutrition - 500 Gm",
+    "price": 87,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470774945:M1B2C4E226_1.png",
+    "rating": 4.6,
+    "discount": 53,
+    "inStock": true
+},
+{
+    "id": "393511",
+    "name": "India Gate Basmati Rice (Rozana) - 1 Kg",
+    "price": 93,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1739005659475:08DA18C194_1.png",
+    "rating": 4.7,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "401148",
+    "name": "Sampoorti Sona Mansuri Rice - 10 Kg",
+    "price": 580,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305915129:H8F50AB8A9_1.png",
+    "rating": 4.3,
+    "discount": 3,
+    "inStock": true
+},
+{
+    "id": "394227",
+    "name": "Sampoorti Urad Dal White - 1 Kg",
+    "price": 138,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856973:7891ADCC88_1.png",
+    "rating": 4.1,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "393577",
+    "name": "Shyam Chat Masala - 100 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852122:28CEB31F6C_1.png",
+    "rating": 4.8,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "395253",
+    "name": "Sampoorti Mini Mogra Basmati Rice - 10 Kg",
+    "price": 430,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305913739:8664EDB807_1.png",
+    "rating": 4.3,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "394299",
+    "name": "Sampoorti Cardamom Black / Big Elaichi - 50 Gm",
+    "price": 170,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432955:B498468F1E_1.png",
+    "rating": 4.4,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "393496",
+    "name": "Sampoorti Mustard Seeds / Rai Big - 200 Gm",
+    "price": 31,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433074:C27D1F03BE_1.png",
+    "rating": 4.3,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "394706",
+    "name": "Everest Turmeric Powder - 100 Gm",
+    "price": 39,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/8F8AF818D6_1.webp",
+    "rating": 4.5,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "394645",
+    "name": "Sampoorti Kasuri Methi / Dried Fenugreek - 50 Gm",
+    "price": 24,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431459:3FCD825573_1.png",
+    "rating": 4.2,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "406759",
+    "name": "Tmi Colman Dry Coconut / Gola - 140 Gm",
+    "price": 83,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1770615079289:DE91D8FE9B_1.png",
+    "rating": 4.5,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "393043",
+    "name": "Sampoorti Tej Patta - 50 Gm",
+    "price": 20,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431167:2CD0099778_1.png",
+    "rating": 4.2,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "400612",
+    "name": "Tata Sampann Kabuli Chana - 500 Gm",
+    "price": 95,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789178267:5954D91B56_1.png",
+    "rating": 4.5,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "397783",
+    "name": "Sampoorti Flax Seeds - 100 Gm",
+    "price": 22,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288720320:1D718926E7_1.png",
+    "rating": 4.2,
+    "discount": 74,
+    "inStock": true
+},
+{
+    "id": "394188",
+    "name": "Sampoorti Panch Foran - 100 Gm",
+    "price": 32,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433065:C01F3EB142_1.png",
+    "rating": 4.6,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "393517",
+    "name": "Nut Toppers Premium Arabian Dates - 400 Gm",
+    "price": 110,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358876085:73CF079EFC_1.png",
+    "rating": 4.7,
+    "discount": 56,
+    "inStock": true
+},
+{
+    "id": "394238",
+    "name": "Catch Coriander Powder- 500 Gm",
+    "price": 130,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818864525:74E10D46FB_1.png",
+    "rating": 4.5,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393218",
+    "name": "Mansa Devi Premium Compounded Hing - 50 Gm (Buy 1 Get 1 Free)",
+    "price": 139,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17655381030146996F2FB85_1.png",
+    "rating": 4.8,
+    "discount": 0,
+    "inStock": true
+},
+{
+    "id": "399427",
+    "name": "Sampoorti Laung / Clove - 25 Gm",
+    "price": 41,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431565:04F3224B39_1.png",
+    "rating": 4.3,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "403763",
+    "name": "India Gate Pure Everyday Basmati Rice - 1 Kg",
+    "price": 88,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1763099483661:IA0C196101_1.png",
+    "rating": 4.2,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "394502",
+    "name": "Daawat Sehat/Rozana Mini Mogra Basmati Rice - 5 Kg",
+    "price": 275,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715507898:1E916FCC3A_1.png",
+    "rating": 4.4,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "393386",
+    "name": "Sampoorti Masoor Black Whole - 500 Gm",
+    "price": 55,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17697669720414E05CF15C6_1.png",
+    "rating": 4.8,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "393780",
+    "name": "Sampoorti Hyderabadi Biryani Basmati Rice - 2 Kg",
+    "price": 182,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305914428:E09001C194_1.png",
+    "rating": 4.6,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "403657",
+    "name": "Tata Rock Salt - 1 Kg",
+    "price": 92,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789179847:B62F783449_1.png",
+    "rating": 4.1,
+    "discount": 7,
+    "inStock": true
+},
+{
+    "id": "393467",
+    "name": "Sampoorti Mustard Seeds / Rai Small - 200 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431105:0E0764E48A_1.png",
+    "rating": 4.5,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "393774",
+    "name": "India Gate Mini Mogra Basmati Rice - 10 Kg",
+    "price": 628,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1726123641913:A8C2770F1E_1.webp",
+    "rating": 4,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "403807",
+    "name": "Khetika Naturale Premium California Almonds - 500 Gm",
+    "price": 472,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759840191686:GD21D5233B_1.png",
+    "rating": 4.5,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "406119",
+    "name": "Prov Select Indian Raisin - 250 Gm",
+    "price": 141,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470775840:A4FA7802B0_1.png",
+    "rating": 4.9,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "393441",
+    "name": "Sampoorti Coriander / Dhania Whole- 400 Gm",
+    "price": 96,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431580:5F57A84D29_1.png",
+    "rating": 4.8,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "393974",
+    "name": "Shyam Black Pepper (Whole) - 100 Gm",
+    "price": 127,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768850506:1CB31F9F68_1.png",
+    "rating": 4.2,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "400613",
+    "name": "Tata Sampann Chana Dal - 1 Kg",
+    "price": 132,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789178858:2671915E9D_1.png",
+    "rating": 4.2,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "401345",
+    "name": "Super Saver Besan / Gram Flour - 500 Gm",
+    "price": 51,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256887:O17E88902E_1.png",
+    "rating": 4.9,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "403786",
+    "name": "India Gate Pulav Pure Basmati Rice -1 Kg",
+    "price": 140,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760702246117:F593D28773_1.png",
+    "rating": 4.6,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "400453",
+    "name": "Sampoorti Sabudana Small - 500 Gm",
+    "price": 47,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305914120:A948B01855_1.png",
+    "rating": 4.1,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "393377",
+    "name": "Sampoorti Masoor Dal Split - 500 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768285917323:7FF8A2AFC3_1.png",
+    "rating": 4.2,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "394267",
+    "name": "Everest Chicken Masala - 50 Gm",
+    "price": 44,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1763817692188F0C6E15407_1.png",
+    "rating": 4.7,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "402378",
+    "name": "Eagle Chat Masala - 100 Gm",
+    "price": 56,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757057513759:1AA8FBECD2_1.png",
+    "rating": 4.7,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394989",
+    "name": "Sampoorti White Til - 500 Gm",
+    "price": 129,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433271:D498C7D79B_1.png",
+    "rating": 4.4,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "393957",
+    "name": "Daawat Pulav Basmati Rice - 5 Kg",
+    "price": 721,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/C38FD16460_1.webp",
+    "rating": 4.6,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "394091",
+    "name": "Hilton Black Salt - 1 Kg",
+    "price": 44,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753101084180:7C3F1DCE80_1.png",
+    "rating": 4.7,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "393435",
+    "name": "Catch Kasuri Methi - 50 Gm",
+    "price": 37,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603572437:A798764BAD_1.webp",
+    "rating": 4.1,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "406101",
+    "name": "Prov Califorian Inshell Walnut - 500 Gm",
+    "price": 297,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750096206:B24EA11840_1.png",
+    "rating": 4.3,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "394275",
+    "name": "Sampoorti Kalonji - 100 Gm",
+    "price": 45,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431454:3BAFA01BD7_1.png",
+    "rating": 4.4,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "394396",
+    "name": "Sampoorti Black Pepper Whole - 25 Gm",
+    "price": 35,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431174:2E967DD0B7_1.png",
+    "rating": 4.1,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "396704",
+    "name": "Fortune Rozana Gold Basmati Rice - 5 Kg",
+    "price": 365,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741262121:2F0002884E_1.png",
+    "rating": 4.2,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "406117",
+    "name": "Prov Select Cashew - 200 Gm",
+    "price": 192,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750096312:E4BE178B68_1.png",
+    "rating": 4.4,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "394679",
+    "name": "Everest Meat Masala - 50 Gm",
+    "price": 44,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/809427285B_1.webp",
+    "rating": 4.3,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394198",
+    "name": "Sampoorti Sabza / Basil Seeds - 100 Gm",
+    "price": 38,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433664:F4D8036BF4_1.png",
+    "rating": 4.7,
+    "discount": 57,
+    "inStock": true
+},
+{
+    "id": "393330",
+    "name": "Catch Chat Masala Sprinklers - 100 Gm",
+    "price": 71,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818864707:93F00ECE91_1.png",
+    "rating": 4.4,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394563",
+    "name": "Sampoorti Tamarind / Imli - 100 Gm",
+    "price": 27,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431974:43A8448CD3_1.png",
+    "rating": 4.9,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "403688",
+    "name": "Sampoorti Kali Mirch Powder - 100 Gm",
+    "price": 140,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432167:79EF6679CC_1.png",
+    "rating": 4.7,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "393352",
+    "name": "Catch Chicken Masala - 100 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818865021:BE6C45C905_1.png",
+    "rating": 4.9,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "393900",
+    "name": "Catch Meat Masala - 100 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603572782:D7DF04F3DF_1.webp",
+    "rating": 4.8,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394616",
+    "name": "Sampoorti Ajwain / Carrom Seeds - 50 Gm",
+    "price": 19,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431866:9F0D261719_1.png",
+    "rating": 4.1,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "406825",
+    "name": "Date Crown Premium Fard Emirates Dates - 250 Gm",
+    "price": 115,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1770889853110:H656B200A8_1.png",
+    "rating": 4.2,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "393261",
+    "name": "Shyam Garam Masala Powder - 100 Gm",
+    "price": 63,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852595:681A8EBD43_1.png",
+    "rating": 4.8,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "398224",
+    "name": "Sampoorti Mustard Seeds / Rai Yellow - 100 Gm",
+    "price": 23,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433167:C547779A55_1.png",
+    "rating": 4.5,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "403864",
+    "name": "Nutrela Soya Chunks - 200 Gm",
+    "price": 41,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358876396:434C6B47F9_1.png",
+    "rating": 4.3,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "392742",
+    "name": "Eagle Kitchen King - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 90,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299021:D931D898D8_1.png",
+    "rating": 4.2,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393190",
+    "name": "Catch Premium Pink Rock Salt - 1 Kg",
+    "price": 87,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724687050578:BB2D2536F1_1.webp",
+    "rating": 4.4,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "395459",
+    "name": "Sampoorti Sendha Namak / Rock Salt - 200 Gm",
+    "price": 13,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768306802058:0416DC44F0_1.png",
+    "rating": 4.8,
+    "discount": 56,
+    "inStock": true
+},
+{
+    "id": "394153",
+    "name": "Sampoorti Kabuli Chana Regular - 1 Kg",
+    "price": 140,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856792:4319E81E30_1.png",
+    "rating": 4.3,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394608",
+    "name": "Sampoorti Cardamom Black / Big Elaich - 25 Gm",
+    "price": 69,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431761:8B0DE8DE29_1.png",
+    "rating": 4.3,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394425",
+    "name": "Sampoorti Roasted Chana - 200 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284855791:63BA874374_1.png",
+    "rating": 4.3,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "393990",
+    "name": "Shyam Coriander Whole Dhania - 200 Gm",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853113:3823955CAD_1.png",
+    "rating": 4.8,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "401092",
+    "name": "Eagle Garam Masala - 100 Gm",
+    "price": 67,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1751690711472:DE7B084791_1.png",
+    "rating": 4.2,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393248",
+    "name": "Laxmi Bhog Daliya - 500 Gm",
+    "price": 33,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754628537857:A805CEDE5B_1.png",
+    "rating": 4.1,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394131",
+    "name": "India Gate Basmati Rice (Dubar) - 1 Kg",
+    "price": 127,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741263717:C8B107FC14_1.png",
+    "rating": 4.9,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "393730",
+    "name": "Fortune Soya Chunks - 1 Kg",
+    "price": 152,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725974987042:703D37AF7F_1.webp",
+    "rating": 4.7,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "392748",
+    "name": "Eagle Garam Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 100,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299326:DE7B084791_1.png",
+    "rating": 4.9,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "394668",
+    "name": "Sampoorti Methi Dana / Fenugreek Whole - 100 Gm",
+    "price": 15,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433462:E33A47578D_1.png",
+    "rating": 4.1,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "403862",
+    "name": "Nutrela Mini Soya Chunk - 200 Gm",
+    "price": 46,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878772:E8AF6B33A8_1.png",
+    "rating": 4.4,
+    "discount": 2,
+    "inStock": true
+},
+{
+    "id": "406105",
+    "name": "Prov Premium Black Raisins Natural Seedless - 250 Gm",
+    "price": 126,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470775425:P38FD82AAD_1.png",
+    "rating": 4.6,
+    "discount": 49,
+    "inStock": true
+},
+{
+    "id": "394439",
+    "name": "Daawat Brown Basmati Rice - 1 Kg",
+    "price": 152,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725612805169:F8DC11E881_1.webp",
+    "rating": 4.5,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "401201",
+    "name": "Sampoorti Dry Fruits Combo (Almond - 250 Gm + Cashew - 250 Gm + Kishmish - 250 Gm)",
+    "price": 637,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1756305484970:Combo_deal52940.png",
+    "rating": 4.3,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "394377",
+    "name": "Aashirvaad Chana Dal Besan - 500 Gm",
+    "price": 78,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/E7268D5A37_1.webp",
+    "rating": 4.9,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "404157",
+    "name": "Tmi Colman Desi Khand - 450 Gm",
+    "price": 59,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789178540:20507EE3CE_1.png",
+    "rating": 4.4,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "394266",
+    "name": "Catch Chhole Masala - 100 Gm",
+    "price": 72,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818864810:224D32812C_1.png",
+    "rating": 4.8,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "400922",
+    "name": "Eagle Black Pepper Powder - 50 Gm",
+    "price": 61,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036382007:X55A520880_1.png",
+    "rating": 4.1,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393032",
+    "name": "Catch Amchur Powder - 100 Gm",
+    "price": 69,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818864376:32DE1BA684_1.png",
+    "rating": 4.6,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "401620",
+    "name": "Keya Red Chilli Flakes - 40 Gm",
+    "price": 72,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278781039:1692FC59CB_1.png",
+    "rating": 4.4,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "393451",
+    "name": "Sampoorti Black Salt - 200 Gm",
+    "price": 13,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768306802669:F43C2FE671_1.png",
+    "rating": 4,
+    "discount": 56,
+    "inStock": true
+},
+{
+    "id": "394180",
+    "name": "Catch Black Salt Sprinkler - 200 Gm",
+    "price": 41,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818865319:E6E17803BF_1.png",
+    "rating": 4.7,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "395013",
+    "name": "Tmi Phool Makhana - 250 Gm",
+    "price": 369,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789178151:895D54389E_1.png",
+    "rating": 4.7,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "392750",
+    "name": "Eagle Chicken Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 90,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299324:1589B94BB5_1.png",
+    "rating": 4,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393981",
+    "name": "Keya Pizza Oregano - 75 Gm",
+    "price": 85,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1726319050300:271C8B2CFB_1.webp",
+    "rating": 4.1,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "402377",
+    "name": "Eagle Biryani Masala - 100 Gm",
+    "price": 67,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757057514147:E83B2EF708_1.png",
+    "rating": 4.9,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393416",
+    "name": "Mother Dairy Ghee (Carton) - 1 Ltr",
+    "price": 622,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878704:FD0E8F22CB_1.png",
+    "rating": 4.1,
+    "discount": 3,
+    "inStock": true
+},
+{
+    "id": "401312",
+    "name": "Shiva's Rice Flour - 500 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768855299:RD70CAB0D2_1.png",
+    "rating": 4.6,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "402173",
+    "name": "Tmi Fresh Phool Makhana Premium - 100 Gm",
+    "price": 149,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789181652:I9392FC5FC_1.png",
+    "rating": 4.7,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "394121",
+    "name": "Shyam Garam Masala Whole - 100 Gm",
+    "price": 105,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851616:8A368960C7_1.png",
+    "rating": 4.2,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "379813",
+    "name": "Sampoorti Flax Seeds - 100 Gm x 2",
+    "price": 39,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1768317313889:1D718926E7_1.png",
+    "rating": 4.8,
+    "discount": 77,
+    "inStock": true
+},
+{
+    "id": "399425",
+    "name": "India Gate Rozzana Lite Basmati Rice - 5 Kg",
+    "price": 414,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1752821521279:ICCEE6152A_1.png",
+    "rating": 4.7,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "395073",
+    "name": "Mdh Garam Masala - 100 Gm",
+    "price": 93,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507556:8057C37AAE_1.png",
+    "rating": 4.1,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "400618",
+    "name": "Tata Sampann Moong Chilka - 500 Gm",
+    "price": 85,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789179044:A2DE380D77_1.png",
+    "rating": 4.8,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "406113",
+    "name": "Prov Premium Walnut Bakers Pieces - 250 Gm",
+    "price": 269,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470775835:Q89B8092C2_1.png",
+    "rating": 4.7,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "394096",
+    "name": "Catch Turmeric Powder - 500 Gm",
+    "price": 152,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751011528944:8476D46643_1.png",
+    "rating": 4.5,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "406107",
+    "name": "Prov Premium California Pistachios Roasted & Salted - 250 Gm",
+    "price": 297,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470774837:Y5809E3AF0_1.png",
+    "rating": 4.8,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "394687",
+    "name": "Everest Pav Bhaji Masala - 100 Gm",
+    "price": 78,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1F128832D5_1.webp",
+    "rating": 4.1,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "406111",
+    "name": "Prov Premium Dried Whole Apricot - 250 Gm",
+    "price": 160,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470775317:G7E5D828D2_1.png",
+    "rating": 4.6,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393725",
+    "name": "Shyam Sambhar Masala - 100 Gm",
+    "price": 42,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852313:54D522A19B_1.png",
+    "rating": 4.7,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "393145",
+    "name": "Sampoorti Rajma Kashmiri - 500 Gm",
+    "price": 63,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856192:313AC9913E_1.png",
+    "rating": 4.4,
+    "discount": 53,
+    "inStock": true
+},
+{
+    "id": "394265",
+    "name": "Shyam Cumin Whole (Jeera) - 200 Gm",
+    "price": 88,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854712:EAED98C16F_1.png",
+    "rating": 4.7,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "394801",
+    "name": "Haryana King Mini Mogra Basmati Rice - 10 Kg",
+    "price": 449,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504986386:A14FB40B6E_1.png",
+    "rating": 4,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "400455",
+    "name": "Sampoorti Urad Gota White - 500 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284856182:81DB0F6EBC_1.png",
+    "rating": 4.3,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "394486",
+    "name": "Sampoorti Mustard Seeds / Rai Small - 100 Gm",
+    "price": 22,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431878:21EE76B5B2_1.png",
+    "rating": 4.2,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "401095",
+    "name": "Eagle Subzi Masala - 100 Gm",
+    "price": 45,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1751690709972:53780B63AB_1.png",
+    "rating": 4.9,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "395220",
+    "name": "Haryana King Rozana Gold Basmati Rice - 1 Kg + ( Free Rice 100 Gm)",
+    "price": 88,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504983787:01BD47E5A2_1.png",
+    "rating": 4.5,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "394613",
+    "name": "Sampoorti Makai Seed - 200 Gm",
+    "price": 38,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284858485:E24B376A83_1.png",
+    "rating": 4.7,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "393778",
+    "name": "Shyam Sabji Masala - 100 Gm",
+    "price": 38,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853211:A14D62DA91_1.png",
+    "rating": 4.4,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "405958",
+    "name": "Arawali Sugar Bura - 500 Gm",
+    "price": 30,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1764234404918:LD1CE3B6EA_1.png",
+    "rating": 4.8,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "393028",
+    "name": "MDH Kitchen King Masala - 100 Gm",
+    "price": 82,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506352:1C73AF4AB8_1.png",
+    "rating": 4.7,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "401094",
+    "name": "Eagle Kitchen King - 100 Gm",
+    "price": 56,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1751690711388:D931D898D8_1.png",
+    "rating": 4.1,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "398205",
+    "name": "Tmi Colman Jaggery - 450 Gm",
+    "price": 58,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789177565:55B913E829_1.png",
+    "rating": 4.6,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "406112",
+    "name": "Prov Premium Sunflower Seeds - 250 Gm",
+    "price": 76,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470775735:K3C5320570_1.png",
+    "rating": 4.2,
+    "discount": 61,
+    "inStock": true
+},
+{
+    "id": "401619",
+    "name": "Keya Pizza Oregano Spice Mix Multipack - 40 Gm",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278783235:T2D328413B_1.png",
+    "rating": 4.7,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "396927",
+    "name": "Fortune Mini Mogra Basmati Rice - 10 Kg",
+    "price": 540,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725974986885:168E075E03_1.webp",
+    "rating": 4.2,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "406747",
+    "name": "Tmi Colman Fard Dates - 450 Gm",
+    "price": 159,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1770615079504:N563DEAE1C_1.png",
+    "rating": 4.3,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "406966",
+    "name": "Prov Whole Natural Makhana (Fox Nuts) - 100 Gm",
+    "price": 103,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771395542665:J32F1F12BE_1.png",
+    "rating": 4.7,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "401091",
+    "name": "Eagle Chana Masala - 100 Gm",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1751690710669:A8F1C7D1DC_1.png",
+    "rating": 4.4,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "394749",
+    "name": "Shyam Carom Seeds (Ajwain) - 200 Gm",
+    "price": 99,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854817:F24C81A50D_1.png",
+    "rating": 4.8,
+    "discount": 7,
+    "inStock": true
+},
+{
+    "id": "394454",
+    "name": "Shiva's Kuttu Atta - 200 Gm",
+    "price": 37,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853010:347930B7D9_1.png",
+    "rating": 4.7,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "406110",
+    "name": "Prov Premium Dates/Khajoor - 250 Gm",
+    "price": 183,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470774838:ZAF6BAA375_1.png",
+    "rating": 4,
+    "discount": 51,
+    "inStock": true
+},
+{
+    "id": "395994",
+    "name": "Gud Arth Dhaga Mishri - 500 Gm",
+    "price": 66,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/C2B6A5DA0D_1.png",
+    "rating": 4.8,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "395401",
+    "name": "Lion Arabian Dates - 500 Gm (Buy 1 Get 1 Free)",
+    "price": 199,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/E3E5EF256B_1.webp",
+    "rating": 4.9,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "393209",
+    "name": "Mansa Devi Premium Compounded Hing - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 259,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1765538124356F1401A5905_1.png",
+    "rating": 4.4,
+    "discount": 0,
+    "inStock": true
+},
+{
+    "id": "392746",
+    "name": "Eagle Chat Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 84,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299222:1AA8FBECD2_1.png",
+    "rating": 4.6,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393166",
+    "name": "MDH Rajma Masala - 100 Gm",
+    "price": 81,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506664:4EB31FAB40_1.png",
+    "rating": 4.7,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394411",
+    "name": "Daawat Sehat/Rozana Mini Mogra 2Nd Basmati Rice - 10 Kg",
+    "price": 518,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715508513:830D76535D_1.png",
+    "rating": 4.6,
+    "discount": 4,
+    "inStock": true
+},
+{
+    "id": "394285",
+    "name": "Sampoorti Gondh - 100 Gm",
+    "price": 37,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433281:DA3950B58E_1.png",
+    "rating": 4.4,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "392833",
+    "name": "Eagle Chana Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 86,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299422:A8F1C7D1DC_1.png",
+    "rating": 4.7,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393705",
+    "name": "Shyam Kashmiri Mirch Powder - 100 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852398:62CB98220F_1.png",
+    "rating": 4.8,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "393303",
+    "name": "MDH Chunky Chat Masala - 100 Gm",
+    "price": 78,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507543:6382F7384B_1.png",
+    "rating": 4.6,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "394634",
+    "name": "Sampoorti Kasuri Methi / Dried Fenugreek - 25 Gm",
+    "price": 19,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431774:9ED921A5FB_1.png",
+    "rating": 4.1,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "394304",
+    "name": "Shyam Tamarind Without Steam (Imli) - 200 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853222:A91D084517_1.png",
+    "rating": 4,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "393936",
+    "name": "Daawat Pulav Basmati Rice - 1 Kg",
+    "price": 135,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715508493:22F64ED4AB_1.png",
+    "rating": 4.9,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "403134",
+    "name": "Shyam Chilli Powder - 500 Gm",
+    "price": 181,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854516:E26161A160_1.png",
+    "rating": 4.6,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "406104",
+    "name": "Prov Independence Almond - 250 Gm",
+    "price": 215,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759750099025:WEDCE8E891_1.png",
+    "rating": 4,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394248",
+    "name": "Shyam Cardamom Black (Doda Elaichi) - 100 gm",
+    "price": 319,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851304:4C1D590ED5_1.png",
+    "rating": 4.5,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "376354",
+    "name": "Sampoorti Sendha Namak / Rock Salt - 200 Gm x 2",
+    "price": 26,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1768317317080:0416DC44F0_1.png",
+    "rating": 4.6,
+    "discount": 56,
+    "inStock": true
+},
+{
+    "id": "402379",
+    "name": "Eagle Chicken Masala - 100 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757057513844:1589B94BB5_1.png",
+    "rating": 4.3,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394210",
+    "name": "Catch Garam Masala Powder - 100 Gm",
+    "price": 88,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/776015FDDD_1.webp",
+    "rating": 4.5,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "394282",
+    "name": "Shyam Whole Jeera - 500 Gm",
+    "price": 219,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852008:20B126BA49_1.png",
+    "rating": 4,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "394100",
+    "name": "Hilton Black Salt - 200 Gm",
+    "price": 9,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753101084383:9F6C0337D6_1.png",
+    "rating": 4.1,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "395572",
+    "name": "Mdh Garam Masala - 50 Gm",
+    "price": 52,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507656:8594F9C380_1.png",
+    "rating": 4.3,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "395039",
+    "name": "Sampoorti Kabuli Chana Dollar - 500 Gm",
+    "price": 94,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284855572:53F1B4623E_1.png",
+    "rating": 4.4,
+    "discount": 47,
+    "inStock": true
+},
+{
+    "id": "401616",
+    "name": "Keya Oregano Seasoning - 50 Gm",
+    "price": 92,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278781944:F31A5621DF_1.png",
+    "rating": 4.3,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "393951",
+    "name": "Shyam Mustard Fine (Rai) - 500 Gm",
+    "price": 89,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851199:3C3290D54C_1.png",
+    "rating": 4.6,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "400929",
+    "name": "Eagle Shahi Paneer Masala - 100 Gm",
+    "price": 62,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036381112:NAF7BBAD00_1.png",
+    "rating": 4.4,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "393092",
+    "name": "Shyam Carom Seeds (Ajwain) - 100 Gm",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853007:49341C182A_1.png",
+    "rating": 4.8,
+    "discount": 9,
+    "inStock": true
+},
+{
+    "id": "393082",
+    "name": "MDH Chana Masala - 100 Gm",
+    "price": 91,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506972:244F8F3806_1.png",
+    "rating": 4.7,
+    "discount": 1,
+    "inStock": true
+},
+{
+    "id": "392754",
+    "name": "Eagle Raita Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 80,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299726:FC2DFD9575_1.png",
+    "rating": 4.5,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "406998",
+    "name": "Tmi Colman Chironji - 100 Gm",
+    "price": 377,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771482255798:73483743B0_1.png",
+    "rating": 4.5,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "394765",
+    "name": "Shyam Mustard Fine (Rai) - 200 Gm",
+    "price": 39,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851811:9C80344705_1.png",
+    "rating": 4.3,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "403563",
+    "name": "Naman Desi Ghee - 450 Ml",
+    "price": 299,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358879001:K851D7B457_1.png",
+    "rating": 4.8,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "401528",
+    "name": "Super Saver Daliya - 500 Gm",
+    "price": 31,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256777:LF5CD8FAAB_1.png",
+    "rating": 4.7,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "394364",
+    "name": "Sampoorti Walnut / Akhrot Whole - 1 Kg",
+    "price": 710,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288720212:1D6AF14597_1.png",
+    "rating": 4.2,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "401621",
+    "name": "Keya Seasoning Peri Peri (jar) - 90 Gm",
+    "price": 85,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278781233:367023DF2B_1.png",
+    "rating": 4.7,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "394013",
+    "name": "Shyam Fenugreek (Methi) Whole - 500 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852816:31979AF6B7_1.png",
+    "rating": 4.6,
+    "discount": 6,
+    "inStock": true
+},
+{
+    "id": "394168",
+    "name": "Sampoorti Matar Dal - 1 Kg",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284858269:DB131CBFCC_1.png",
+    "rating": 4.9,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "394482",
+    "name": "MDH Deggi Mirch Powder - 100 Gm",
+    "price": 93,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507876:D088A0535A_1.png",
+    "rating": 4.2,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394338",
+    "name": "India Gate Rozzana Choice Basmati Rice - 5 Kg",
+    "price": 397,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1766495435502492DFC1850_1.png",
+    "rating": 4.7,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "395768",
+    "name": "Mdh Lal Mirch Powder - 200 Gm",
+    "price": 106,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507280:677DE507C8_1.png",
+    "rating": 4.8,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "393108",
+    "name": "Shyam Shahi Paneer Masala - 100 Gm",
+    "price": 56,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768850495:1E0AF187D6_1.png",
+    "rating": 4.6,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "394200",
+    "name": "Sampoorti 240 Count Premium Cashew / Kaju - 250 Gm",
+    "price": 263,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288721699:7ED144A2D0_1.png",
+    "rating": 4.7,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "400924",
+    "name": "Eagle Dry Ginger (Saunth) Powder - 80 Gm",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036381009:L46BCEBCCF_1.png",
+    "rating": 4.6,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393803",
+    "name": "MDH Meat Masala - 100 Gm",
+    "price": 82,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507853:B1AC32C882_1.png",
+    "rating": 4.4,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "393658",
+    "name": "Tmi Colman Arabian Dates - 450 Gm",
+    "price": 98,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/177071691440927EC9F05DE_1.png",
+    "rating": 4.9,
+    "discount": 60,
+    "inStock": true
+},
+{
+    "id": "395205",
+    "name": "Haryana King Malai Basmati Rice - 1 Kg + ( Free Rice 100 Gm)",
+    "price": 100,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504986198:93513BFC2C_1.png",
+    "rating": 4.8,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "393621",
+    "name": "Haryana King Rozana Basmati Rice (Bag) - 5 Kg",
+    "price": 345,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504983509:0C7D760526_1.png",
+    "rating": 4,
+    "discount": 47,
+    "inStock": true
+},
+{
+    "id": "394554",
+    "name": "Mdh Kashmiri Mirch Powder - 100 Gm",
+    "price": 93,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507962:D9726B59E6_1.png",
+    "rating": 4.8,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "394446",
+    "name": "Sampoorti Fennel / Saunf Whole Small - 200 Gm",
+    "price": 84,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432852:6727511A6E_1.png",
+    "rating": 4.8,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "393799",
+    "name": "Shyam Fennel (Sounf) Big Whole - 100 Gm",
+    "price": 55,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851912:10BA04555A_1.png",
+    "rating": 4.2,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "394325",
+    "name": "MDH Haldi Powder - 100 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507253:462DF92DDD_1.png",
+    "rating": 4.5,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "402382",
+    "name": "Eagle Sambhar Masala - 100 Gm",
+    "price": 50,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757057513838:B9896626C0_1.png",
+    "rating": 4,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "396234",
+    "name": "Hilton Rock Salt - 200 Gm",
+    "price": 11,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1753101085296:A6980A789D_1.png",
+    "rating": 4.9,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "401615",
+    "name": "Keya Oregano (Freeze Dried) - 15 Gm",
+    "price": 79,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278781018:64F0846AD5_1.png",
+    "rating": 4.2,
+    "discount": 27,
+    "inStock": true
+},
+{
+    "id": "392751",
+    "name": "Eagle Subzi Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 68,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299328:53780B63AB_1.png",
+    "rating": 4.7,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "404263",
+    "name": "Hilton Rock Salt - 1 Kg",
+    "price": 50,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1765184594908ADE726CDCD_1.png",
+    "rating": 4.6,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "406965",
+    "name": "Prov Select California Roasted & Salted Pistachios - 400 Gm",
+    "price": 470,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771395542660:X48AE8CC3A_1.png",
+    "rating": 4.2,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "402465",
+    "name": "Jivo Cold Press Canola Oil - 1 Ltr",
+    "price": 247,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757577892333:P567B80265_1.png",
+    "rating": 4.1,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "393753",
+    "name": "Haryana King Mogra Special Basmati Rice (Bag) - 5 Kg",
+    "price": 305,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504986496:AD588F2222_1.png",
+    "rating": 4.9,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "394000",
+    "name": "Shyam Fennel (Sounf) Small Whole - 100 Gm",
+    "price": 54,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768850498:1C4EB817C7_1.png",
+    "rating": 4.8,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "393127",
+    "name": "Shyam Pavbhaji Masala - 100 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852616:5055D14007_1.png",
+    "rating": 4.6,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "393054",
+    "name": "Shyam Tea Masala - 25 Gm",
+    "price": 25,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852413:85B0CD6491_1.png",
+    "rating": 4.5,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "402380",
+    "name": "Eagle Pav Bhaji Masala - 100 Gm",
+    "price": 52,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757057513838:AE3A5AABD5_1.png",
+    "rating": 4.6,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "394848",
+    "name": "Sampoorti Afghan Raisins / Kishmis - 100 Gm",
+    "price": 86,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288720203:0EFD80EB86_1.png",
+    "rating": 4.3,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "402467",
+    "name": "Jivo Extra Virgin Oilive Oil - 500 Ml",
+    "price": 430,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757577892516:S1A5F1F5A0_1.png",
+    "rating": 4.7,
+    "discount": 56,
+    "inStock": true
+},
+{
+    "id": "394447",
+    "name": "Shiva's Singhara Atta - 200 Gm",
+    "price": 47,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851417:7C93F6535C_1.png",
+    "rating": 4.6,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "399663",
+    "name": "Sampoorti (Cardamon+Clove+ Pepper) - 25 Gm Each",
+    "price": 159,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1756305485096:Combo_deal52925.png",
+    "rating": 4.7,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "401618",
+    "name": "Keya Pizza Chilli Flakes Multipack - 20 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278781337:AEE1BEFC30_1.png",
+    "rating": 4.6,
+    "discount": 0,
+    "inStock": true
+},
+{
+    "id": "394230",
+    "name": "Shyam Black Pepper Powder - 50 Gm",
+    "price": 80,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851233:3C74980CB5_1.png",
+    "rating": 4.2,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "402381",
+    "name": "Eagle Raita Masala - 100 Gm",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757057514142:FC2DFD9575_1.png",
+    "rating": 4.8,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "395214",
+    "name": "Haryana King Pulao Basmati Rice - 1 Kg + ( Free Rice 100 Gm)",
+    "price": 113,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504985108:85CB138FCF_1.png",
+    "rating": 4.1,
+    "discount": 43,
+    "inStock": true
+},
+{
+    "id": "394528",
+    "name": "Catch Dry Ginger Powder - 90 Gm",
+    "price": 62,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761818865313:DF401933F3_1.png",
+    "rating": 4.2,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "394470",
+    "name": "MDH Coriander Powder - 500 Gm",
+    "price": 184,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507578:70317DD9C5_1.png",
+    "rating": 4.5,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "393147",
+    "name": "MDH Sambar Masala - 100 Gm",
+    "price": 72,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506349:0E9FD6A358_1.png",
+    "rating": 4.9,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "394785",
+    "name": "Sampoorti Black Til - 100 Gm",
+    "price": 53,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433275:CEC128BCF2_1.png",
+    "rating": 4.7,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "406106",
+    "name": "Prov Premium Blueberry Dried - 250 Gm",
+    "price": 399,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768470774421:N098D39E8C_1.png",
+    "rating": 4.2,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "394140",
+    "name": "Sampoorti Dry Ginger / Sunth - 50 Gm",
+    "price": 32,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433485:E744566944_1.png",
+    "rating": 4.2,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "393157",
+    "name": "MDH Chicken Masala - 100 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507766:A7BE505BF8_1.png",
+    "rating": 4,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "395748",
+    "name": "Haryana King Select Basmati Rice - 1 Kg + ( Free Rice 100 Gm)",
+    "price": 120,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504983493:0B68B53344_1.png",
+    "rating": 4.7,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "393675",
+    "name": "Catch Sendha Namak / Rock Salt Sprinkler - 100 Gm",
+    "price": 41,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724687050051:3B90E5FC69_1.webp",
+    "rating": 4,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "394029",
+    "name": "Everest Turmeric Powder - 200 Gm",
+    "price": 77,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725687583485:BFCD6F16A7_1.webp",
+    "rating": 4.8,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "393785",
+    "name": "Green Shakti Prasad Makhana - 250 Gm",
+    "price": 21,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1733209055927:C3602FFD36_1.webp",
+    "rating": 4.8,
+    "discount": 53,
+    "inStock": true
+},
+{
+    "id": "392755",
+    "name": "Eagle Sambhar Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 76,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299925:B9896626C0_1.png",
+    "rating": 4.5,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "395394",
+    "name": "Mdh Sabji Masala - 100 Gm",
+    "price": 79,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507368:773A1B883A_1.png",
+    "rating": 4.1,
+    "discount": 1,
+    "inStock": true
+},
+{
+    "id": "394461",
+    "name": "Shiva's Rajgiri Atta - 200 Gm",
+    "price": 37,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853396:BFC1DD2C9A_1.png",
+    "rating": 4.1,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "393173",
+    "name": "MDH Shahi Paneer Masala - 100 Gm",
+    "price": 91,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507969:F97B499726_1.png",
+    "rating": 4.7,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "403135",
+    "name": "Shyam Turmeric Powder - 500 Gm",
+    "price": 141,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853498:C9AAD5E038_1.png",
+    "rating": 4.1,
+    "discount": 47,
+    "inStock": true
+},
+{
+    "id": "406929",
+    "name": "Date Crown Premium Fard Emirates Dates - 250 Gm (Buy 2 Get 1 Free)",
+    "price": 324,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1770889853110:H656B200A8_1.png",
+    "rating": 4,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394276",
+    "name": "Everest Dry Mango Powder - 100 Gm",
+    "price": 86,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/03FF7F4A9D_1.webp",
+    "rating": 4.7,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "403865",
+    "name": "Nutrela Soya Granules - 200 Gm",
+    "price": 46,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358877874:AE0B8E434C_1.png",
+    "rating": 4.2,
+    "discount": 2,
+    "inStock": true
+},
+{
+    "id": "400884",
+    "name": "Fortune Biryani Special Basmati Rice - 1 Kg",
+    "price": 167,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741262814:5066BCD15C_1.png",
+    "rating": 4.9,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "395483",
+    "name": "Mdh Readymix Tea Masala - 25 Gm",
+    "price": 45,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506862:44FD015FF7_1.png",
+    "rating": 4.6,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "392753",
+    "name": "Eagle Pav Bhaji Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 84,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299626:AE3A5AABD5_1.png",
+    "rating": 4.6,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "395064",
+    "name": "Mdh Dhania Powder - 100 Gm",
+    "price": 39,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506567:1E64208059_1.png",
+    "rating": 4.7,
+    "discount": 7,
+    "inStock": true
+},
+{
+    "id": "393083",
+    "name": "Fortune Soya Chunks - 200 Gm",
+    "price": 41,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725881277152:0C4A59F769_1.webp",
+    "rating": 4.6,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "406963",
+    "name": "Prov Independence California Almonds - 500 Gm",
+    "price": 449,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771395542085:WD9389C2D4_1.png",
+    "rating": 4.1,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "394138",
+    "name": "MDH Lal Mirch Powder - 100 Gm",
+    "price": 55,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506957:96D23D5B5D_1.png",
+    "rating": 4.7,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "402146",
+    "name": "Keya Schezwan Fried Rice Masala (20 Gmx 5) -100 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756367557254:X9BEDB5BDF_1.png",
+    "rating": 4.5,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "393487",
+    "name": "Sampoorti Jaiphal / Nutmag - 50 Gm",
+    "price": 61,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432853:A30DB676A4_1.png",
+    "rating": 4.4,
+    "discount": 28,
+    "inStock": true
+},
+{
+    "id": "392752",
+    "name": "Eagle Biryani Masala - 100 Gm (Buy 1 Get 1 Free)",
+    "price": 100,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1767855299625:E83B2EF708_1.png",
+    "rating": 4.2,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393767",
+    "name": "Keya Pasta Seasoning - 45 Gm",
+    "price": 109,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1726319049916:4F6545FB74_1.webp",
+    "rating": 4.5,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394097",
+    "name": "Mdh Haldi Powder - 500 Gm",
+    "price": 191,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507865:B8EE848F8D_1.png",
+    "rating": 4.1,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "402251",
+    "name": "Gud Arth Jaggery - 950 Gm",
+    "price": 90,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756804559973XA0C50D8F7_1.png",
+    "rating": 4.8,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "400923",
+    "name": "Eagle Dal Makhani Masala - 100 Gm",
+    "price": 52,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036381508:S4A11CFA4A_1.png",
+    "rating": 4,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "395174",
+    "name": "Mdh Dal Makhani Masala - 100 Gm",
+    "price": 67,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507669:598145DB4F_1.png",
+    "rating": 4.5,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "406003",
+    "name": "Gud Arth Jaggery Powder - 500 Gm",
+    "price": 65,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1765269792487F1D9A7E46B_1.png",
+    "rating": 4.3,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "393559",
+    "name": "Catch Shahi Paneer Masala - 100 Gm",
+    "price": 77,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603571502:6CA15D6E5D_1.webp",
+    "rating": 4.7,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "393138",
+    "name": "Shyam Clove (Lavang) Whole - 100 gm",
+    "price": 162,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853118:9955033853_1.png",
+    "rating": 4,
+    "discount": 7,
+    "inStock": true
+},
+{
+    "id": "401313",
+    "name": "Shiva's Sawakh (bhagar ) - 200 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768855095:ID665FD39A_1.png",
+    "rating": 4.6,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "400150",
+    "name": "Catch Iodised Table Salt Sprinkler 200 G",
+    "price": 46,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17573321855381536721FA1_1.png",
+    "rating": 4.2,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "403193",
+    "name": "Khetika Naturale Gold Makhana - 200 Gm",
+    "price": 180,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759472473746:Y1BFC2F6C3_1.png",
+    "rating": 4.8,
+    "discount": 69,
+    "inStock": true
+},
+{
+    "id": "406999",
+    "name": "Tmi Colman Desiccated Coconut Powder - 100 Gm",
+    "price": 63,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771482255711:2942263AA9_1.png",
+    "rating": 4.5,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "395139",
+    "name": "Sampoorti Roasted Black Pepper Cashew / Kaju - 100 Gm",
+    "price": 128,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288724700:528993DA3A_1.png",
+    "rating": 4.3,
+    "discount": 39,
+    "inStock": true
+},
+{
+    "id": "394277",
+    "name": "Catch Pavbhaji Masala - 100 Gm",
+    "price": 76,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/C701CF758A_1.webp",
+    "rating": 4.7,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "394066",
+    "name": "Mdh Amchoor Powder - 100 Gm",
+    "price": 75,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507461:2477EFC35D_1.png",
+    "rating": 4.6,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "393894",
+    "name": "Sampoorti Kalonji - 50 Gm",
+    "price": 27,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431104:0D598CE42D_1.png",
+    "rating": 4.7,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "394076",
+    "name": "Keya Pizza Seasoning - 45 Gm",
+    "price": 95,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1726319050617:096150FC2E_1.webp",
+    "rating": 4.3,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "394729",
+    "name": "Creamooz Pizza Spice Mix - 60 Gm",
+    "price": 73,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/D36154048C_1.webp",
+    "rating": 4.1,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394333",
+    "name": "MDH Kasoori Methi - 25 Gm",
+    "price": 29,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506870:94B13D2EDA_1.png",
+    "rating": 4.2,
+    "discount": 3,
+    "inStock": true
+},
+{
+    "id": "395188",
+    "name": "Mdh Kasoori Methi - 50 Gm",
+    "price": 55,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506565:2E8937280F_1.png",
+    "rating": 4.2,
+    "discount": 1,
+    "inStock": true
+},
+{
+    "id": "401617",
+    "name": "Keya Piri Piri Spice Mix Multipack - 40 Gm",
+    "price": 60,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278782149:G6DFC4AE73_1.png",
+    "rating": 4.2,
+    "discount": 0,
+    "inStock": true
+},
+{
+    "id": "393868",
+    "name": "Shyam Cumin Powder - 100 Gm",
+    "price": 80,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854413:E6D91B7C23_1.png",
+    "rating": 4.8,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "400930",
+    "name": "Eagle Soya Chaap Masala - 100 Gm",
+    "price": 56,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754036381791:T8DC960985_1.png",
+    "rating": 4.1,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "393356",
+    "name": "Sampoorti Munakka - 200 Gm",
+    "price": 177,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288727111:FFFAEF8D6C_1.png",
+    "rating": 4.4,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "393093",
+    "name": "Shyam Anardana Powder - 100 Gm",
+    "price": 50,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852720:7146ECFB20_1.png",
+    "rating": 4.2,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393033",
+    "name": "Shyam Fenugreek (Methi) Whole - 200 Gm",
+    "price": 33,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768854823:F3251882B5_1.png",
+    "rating": 4.8,
+    "discount": 5,
+    "inStock": true
+},
+{
+    "id": "401614",
+    "name": "Keya Mixed Herbs - 23 Gm",
+    "price": 109,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278781920:EF9F542E52_1.png",
+    "rating": 4.3,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394794",
+    "name": "Sampoorti Jowar Atta - 1 Kg",
+    "price": 82,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768296037579:6348D2D51B_1.png",
+    "rating": 4.6,
+    "discount": 25,
+    "inStock": true
+},
+{
+    "id": "401613",
+    "name": "Keya Hakka Noodles Masala 20 Gm (pack Of 5) - 100 Gm",
+    "price": 40,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1756278782631:IA81CDE23F_1.png",
+    "rating": 4.6,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "394125",
+    "name": "Mdh Haldi Powder - 200 Gm",
+    "price": 80,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507446:2182BF9174_1.png",
+    "rating": 4.4,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "376270",
+    "name": "Hilton Rock Salt - 200 Gm x 2",
+    "price": 20,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1753102802171:A6980A789D_1.png",
+    "rating": 4.3,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393948",
+    "name": "Everest Coriander Powder - 200 Gm",
+    "price": 68,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725687582995:6CF72E4675_1.webp",
+    "rating": 4.3,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "395878",
+    "name": "Shree Mansha Foods Sooji - 500 Gm",
+    "price": 25,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768850806:2D56B953C6_1.png",
+    "rating": 4.8,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "399787",
+    "name": "Shree Mansha Foods Besan - 1 Kg",
+    "price": 87,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853706:CE59C0E910_1.png",
+    "rating": 4.1,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "393491",
+    "name": "Aashirvaad Shudh Chakki Atta - 10 Kg",
+    "price": 423,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1751009430636:30ADAD0094_1.png",
+    "rating": 4,
+    "discount": 12,
+    "inStock": true
+},
+{
+    "id": "394443",
+    "name": "Fortune Chakki Fresh Atta - 10 Kg",
+    "price": 399,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1742900595676:4C1C32FFD0_1.png",
+    "rating": 4.9,
+    "discount": 17,
+    "inStock": true
+},
+{
+    "id": "400463",
+    "name": "Shree Mansha Foods Besan - 500 Gm",
+    "price": 42,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768853317:B7F1CD4145_1.png",
+    "rating": 4.3,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "394079",
+    "name": "Fortune Chakki Fresh Atta - 5 Kg",
+    "price": 211,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1745574104042:424B799145_1.png",
+    "rating": 4.4,
+    "discount": 16,
+    "inStock": true
+},
+{
+    "id": "394386",
+    "name": "Sampoorti Indian Raisins / Kishmis - 250 Gm",
+    "price": 150,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288726423:E440B4C63F_1.png",
+    "rating": 4.8,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "393201",
+    "name": "Laxmi Bhog Sooji - 500 Gm",
+    "price": 31,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1771307030211F1F8E74093_1.png",
+    "rating": 4.6,
+    "discount": 13,
+    "inStock": true
+},
+{
+    "id": "402496",
+    "name": "Parth Jaggery Powder - 500 Gm",
+    "price": 62,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878903:I03C3766D1_1.png",
+    "rating": 4.4,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "394627",
+    "name": "Sampoorti Urad Dal Chilka Black - 1 kg",
+    "price": 123,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857674:BA6E83612A_1.png",
+    "rating": 4,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "395421",
+    "name": "Sampoorti Premium Raisins / Kishmis - 100 Gm",
+    "price": 64,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288721420:7CEFFCB916_1.png",
+    "rating": 4.7,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "395359",
+    "name": "Sampoorti 240 Count Premium Cashew / Kaju - 100 Gm",
+    "price": 121,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288724009:7623BA2F1E_1.png",
+    "rating": 4.1,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "395417",
+    "name": "Lion Seeded Dates 500 Gm (Buy 1 Get 1 Free) - 1 Kg",
+    "price": 149,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/8366B83054_1.webp",
+    "rating": 4.2,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "394400",
+    "name": "Sampoorti Mix Dal - 1 Kg",
+    "price": 122,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284857374:65583BE4E8_1.png",
+    "rating": 4,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "394261",
+    "name": "Goras Cow Ghee - 1 Kg",
+    "price": 775,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1727156818261:AFB99B7692_1.webp",
+    "rating": 4.4,
+    "discount": 3,
+    "inStock": true
+},
+{
+    "id": "394520",
+    "name": "Sampoorti Walnut / Akhrot Giri - 100 Gm",
+    "price": 195,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288722417:27D02C57EF_1.png",
+    "rating": 4.8,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "393949",
+    "name": "Aashirvaad Besan - 1 Kg",
+    "price": 153,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1742371274076:7AC3A87BE7_1.png",
+    "rating": 4.5,
+    "discount": 9,
+    "inStock": true
+},
+{
+    "id": "393111",
+    "name": "Sampoorti Premium Raisins / Kishmis - 500 Gm",
+    "price": 295,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288723728:5702CD0416_1.png",
+    "rating": 4.5,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "393934",
+    "name": "Sampoorti Tamarind / Imli - 200 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433079:C230464ABE_1.png",
+    "rating": 4.8,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "394418",
+    "name": "Sampoorti Kasuri Methi / Dried Fenugreek - 100 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432676:2874005CC6_1.png",
+    "rating": 4.7,
+    "discount": 49,
+    "inStock": true
+},
+{
+    "id": "394474",
+    "name": "Sampoorti Mustard Seeds / Rai Big - 100 Gm",
+    "price": 18,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432652:501085F15B_1.png",
+    "rating": 4.7,
+    "discount": 40,
+    "inStock": true
+},
+{
+    "id": "394388",
+    "name": "Sampoorti Chawli Big - 500 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284858183:D9DD5F6F73_1.png",
+    "rating": 4.7,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "394659",
+    "name": "Sampoorti Fennel / Saunf Whole Small - 100 Gm",
+    "price": 44,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432462:57477ABCBD_1.png",
+    "rating": 4.1,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "402495",
+    "name": "Parth Jaggery - 950 Gm",
+    "price": 79,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878880:H1760CF6E4_1.png",
+    "rating": 4.1,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "403389",
+    "name": "Sampoorti Bajra Whole - 500 Gm",
+    "price": 27,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768285090240P20BA25BD5_1.png",
+    "rating": 4.9,
+    "discount": 37,
+    "inStock": true
+},
+{
+    "id": "394085",
+    "name": "Sampoorti Premium Raisins / Kishmis - 250 Gm",
+    "price": 152,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288726813:EDFCF859C7_1.png",
+    "rating": 4.1,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "403391",
+    "name": "Sampoorti Quinoa Millets Whole - 500 Gm",
+    "price": 91,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284859181:XCDA0A5971_1.png",
+    "rating": 4.6,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "393476",
+    "name": "Sampoorti Javetri / Mace - 25 Gm",
+    "price": 83,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433769:FCF157D878_1.png",
+    "rating": 4.1,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "393914",
+    "name": "Sampoorti Murmura - 500 Gm",
+    "price": 58,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305911936:8A2D194F03_1.png",
+    "rating": 4.4,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394709",
+    "name": "Super Saver Almond / Badam - 1 kg",
+    "price": 811,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028256203:870991E1A8_1.png",
+    "rating": 4.3,
+    "discount": 39,
+    "inStock": true
+},
+{
+    "id": "393885",
+    "name": "Sampoorti Roasted & Salted Cashew / Kaju - 100 Gm",
+    "price": 134,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725321:A545FDA733_1.png",
+    "rating": 4.1,
+    "discount": 33,
+    "inStock": true
+},
+{
+    "id": "394780",
+    "name": "Sampoorti Bajra Atta - 1 Kg",
+    "price": 45,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768296037980:AFB1F42D35_1.png",
+    "rating": 4.9,
+    "discount": 55,
+    "inStock": true
+},
+{
+    "id": "393151",
+    "name": "Milkfood Rich Desi Ghee (Carton) - 900 Ml",
+    "price": 565,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358877387:218291D0E5_1.png",
+    "rating": 4.7,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "394697",
+    "name": "Everest Sambhar Masala - 100 Gm",
+    "price": 68,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17718527380877847A8433F_1.png",
+    "rating": 4.9,
+    "discount": 17,
+    "inStock": true
+},
+{
+    "id": "394814",
+    "name": "Sampoorti Raagi Atta - 1 Kg",
+    "price": 64,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768296037592:6915D02470_1.png",
+    "rating": 4.1,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "403390",
+    "name": "Sampoorti Jowar Whole - 500 Gm",
+    "price": 39,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284859193:ZE99FDFE19_1.png",
+    "rating": 4.4,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "403451",
+    "name": "Sampoorti Melon Seeds - 100 Gm",
+    "price": 118,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288727319:I265736A7D_1.png",
+    "rating": 4.3,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "394001",
+    "name": "Everest Tea Masala - 50 Gm",
+    "price": 62,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1725732818953:DD5BA131D6_1.webp",
+    "rating": 4.2,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394585",
+    "name": "Sampoorti Independance California Almonds / Badam - 250 Gm",
+    "price": 242,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288722021:08C890FCC0_1.png",
+    "rating": 4.5,
+    "discount": 29,
+    "inStock": true
+},
+{
+    "id": "402166",
+    "name": "Tmi Colman Anjeer - 100 Gm",
+    "price": 159,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789175762:3B5FA5E739_1.png",
+    "rating": 4.7,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "395257",
+    "name": "Sampoorti Anjeer / Fig - 100 Gm",
+    "price": 151,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288723212:86FFC8F990_1.png",
+    "rating": 4.3,
+    "discount": 24,
+    "inStock": true
+},
+{
+    "id": "394931",
+    "name": "Saffola Active Oil - 4.25 Kg",
+    "price": 738,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767609151298:39004BD3ED_1.png",
+    "rating": 4.3,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "395060",
+    "name": "Sampoorti Moth - 500 Gm",
+    "price": 61,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284855368:036C71A0D8_1.png",
+    "rating": 4.7,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394114",
+    "name": "Sampoorti Green Moong Whole - 1 Kg",
+    "price": 125,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768284855984:080D45D038_1.png",
+    "rating": 4.4,
+    "discount": 34,
+    "inStock": true
+},
+{
+    "id": "394691",
+    "name": "Sampoorti Roasted & Salted Almond / Badam - 100 Gm",
+    "price": 135,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725198:A59FA05612_1.png",
+    "rating": 4.2,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "403686",
+    "name": "Sampoorti Dry Ginger Powder - 100 Gm",
+    "price": 59,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432653:81969FD0BC_1.png",
+    "rating": 4.6,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "393925",
+    "name": "Sampoorti Star Anise / Badiyan - 25 Gm",
+    "price": 25,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432357:344B74B943_1.png",
+    "rating": 4.2,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "393458",
+    "name": "Sampoorti Sabudana - 1 Kg",
+    "price": 71,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305914131:ACA3DF48BE_1.png",
+    "rating": 4.9,
+    "discount": 45,
+    "inStock": true
+},
+{
+    "id": "394095",
+    "name": "Sampoorti Pista Salted - 200 Gm",
+    "price": 335,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288727007:F94C8FFD57_1.png",
+    "rating": 4.7,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "394416",
+    "name": "Sampoorti Garam Masala Whole - 200 Gm",
+    "price": 222,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300432672:512341E985_1.png",
+    "rating": 4.7,
+    "discount": 26,
+    "inStock": true
+},
+{
+    "id": "394158",
+    "name": "Sampoorti NP California Almonds / Badam - 500 Gm",
+    "price": 522,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288726710:E444060715_1.png",
+    "rating": 4.6,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "394175",
+    "name": "Sampoorti Turmeric / Haldi Whole - 100 Gm",
+    "price": 39,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300433752:FB3E5E4B52_1.png",
+    "rating": 4.4,
+    "discount": 35,
+    "inStock": true
+},
+{
+    "id": "394751",
+    "name": "Sampoorti Cashew Broken / Kaju Tukda - 200 Gm",
+    "price": 211,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288722208:9CB33D2E98_1.png",
+    "rating": 4.8,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "402169",
+    "name": "Tmi Colman Mix Dry Fruits - 200 Gm",
+    "price": 90,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789182450:X90A94395C_1.png",
+    "rating": 4.2,
+    "discount": 66,
+    "inStock": true
+},
+{
+    "id": "393074",
+    "name": "Sampoorti Star Anise / Badiyan - 50 Gm",
+    "price": 48,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768300431770:8B7FA1525C_1.png",
+    "rating": 4.4,
+    "discount": 52,
+    "inStock": true
+},
+{
+    "id": "393429",
+    "name": "MDH Pav Bhaji Masala - 100 Gm",
+    "price": 84,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351507053:411A0FC66B_1.png",
+    "rating": 4.4,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "395264",
+    "name": "Sampoorti Mogra Basmati Rice - 10 Kg",
+    "price": 516,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768305912019:45CF0CA434_1.png",
+    "rating": 4.9,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "394297",
+    "name": "Shyam Black Pepper Powder - 100 Gm",
+    "price": 129,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851110:2DD598EAF8_1.png",
+    "rating": 4.2,
+    "discount": 32,
+    "inStock": true
+},
+{
+    "id": "393431",
+    "name": "Sampoorti Mixed Dryfruits - 500 Gm",
+    "price": 270,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288724516:66701EA316_1.png",
+    "rating": 4.5,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "394058",
+    "name": "Sampoorti Anjeer / Fig - 200 Gm",
+    "price": 302,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288722407:19DBB0E001_1.png",
+    "rating": 4.3,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "394806",
+    "name": "Sampoorti Makka Atta - 1 Kg",
+    "price": 45,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768296037792:148846C9CA_1.png",
+    "rating": 4.4,
+    "discount": 59,
+    "inStock": true
+},
+{
+    "id": "394711",
+    "name": "Sampoorti Roasted Chana - 500 Gm",
+    "price": 70,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17700438349721052661436_1.png",
+    "rating": 4.8,
+    "discount": 36,
+    "inStock": true
+},
+{
+    "id": "394658",
+    "name": "Shyam Coriander Whole Dhania - 500 Gm",
+    "price": 114,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852519:343BDB5EF8_1.png",
+    "rating": 4.4,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "403180",
+    "name": "Khetika Premium Makhana - 100 Gm",
+    "price": 120,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1759472472573:CB740CD125_1.png",
+    "rating": 4,
+    "discount": 59,
+    "inStock": true
+},
+{
+    "id": "394713",
+    "name": "Sampoorti Walnut / Akhrot Giri - 250 Gm",
+    "price": 485,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288722613:034BD2BEE5_1.png",
+    "rating": 4.7,
+    "discount": 11,
+    "inStock": true
+},
+{
+    "id": "394562",
+    "name": "Sampoorti Pista Salted - 100 Gm",
+    "price": 170,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288721220:7B2C28AA7F_1.png",
+    "rating": 4.7,
+    "discount": 19,
+    "inStock": true
+},
+{
+    "id": "395271",
+    "name": "Sampoorti Walnut / Akhrot Whole - 500 Gm",
+    "price": 409,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725518:BBE6F2B606_1.png",
+    "rating": 4.6,
+    "discount": 18,
+    "inStock": true
+},
+{
+    "id": "403570",
+    "name": "Tmi Colman Cashew (400 Nos) - 500 Gm",
+    "price": 517,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767789177840:99B4B33BC6_1.png",
+    "rating": 4.1,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "395029",
+    "name": "Sampoorti 240 Count Broken 2 PC Cashew / Kaju - 100 Gm",
+    "price": 118,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288723305:87D6595381_1.png",
+    "rating": 4.7,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "395435",
+    "name": "Sampoorti Apricot / Jardalu - 200 Gm",
+    "price": 112,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288725515:ABFACBC820_1.png",
+    "rating": 4.2,
+    "discount": 42,
+    "inStock": true
+},
+{
+    "id": "395891",
+    "name": "Dhara Soyabean Oil (Jar) - 4.2 Kg",
+    "price": 712,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/DE0D01234D_1.png",
+    "rating": 4.4,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "393433",
+    "name": "MDH Chilli Powder - 500 Gm",
+    "price": 245,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506761:33BB7E9DD6_1.png",
+    "rating": 4.1,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "397097",
+    "name": "Pansari Mahak Mogra Basmati Rice - 5 Kg",
+    "price": 321,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358874701:7C1E22C872_1.png",
+    "rating": 4.8,
+    "discount": 30,
+    "inStock": true
+},
+{
+    "id": "393626",
+    "name": "Daawat Premium Devaaya Basmati Rice - 5 Kg",
+    "price": 495,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754551849769BEBC4E5230_1.png",
+    "rating": 4.5,
+    "discount": 41,
+    "inStock": true
+},
+{
+    "id": "402466",
+    "name": "Jivo Extra Light Olive Oil - 1 Ltr",
+    "price": 618,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757577892632:TE99CABEBC_1.png",
+    "rating": 4.5,
+    "discount": 58,
+    "inStock": true
+},
+{
+    "id": "393423",
+    "name": "Shyam Dry Ginger Powder - 100 Gm",
+    "price": 72,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768852714:6330EC29A3_1.png",
+    "rating": 4.1,
+    "discount": 20,
+    "inStock": true
+},
+{
+    "id": "395879",
+    "name": "Dhara Ricebran Oil (Pouch) - 840 Gm",
+    "price": 171,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/17581123349116759DCEF15_1.png",
+    "rating": 4.8,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "403620",
+    "name": "Keya Korean Kimchi Masala Multipack - 40 Gm",
+    "price": 49,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761806112165:K7A771BD53_1.png",
+    "rating": 4.3,
+    "discount": 2,
+    "inStock": true
+},
+{
+    "id": "394315",
+    "name": "Shyam Tamarind Without Steam (Imli) - 500 Gm",
+    "price": 99,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767768851327:5DEBBEE419_1.png",
+    "rating": 4.5,
+    "discount": 38,
+    "inStock": true
+},
+{
+    "id": "394382",
+    "name": "India Gate Basmati Rice (Classic) - 1 kg",
+    "price": 218,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/DBC5849780_1.webp",
+    "rating": 4.7,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "395194",
+    "name": "Haryana King Classic Basmati Rice - 1 Kg + ( Free Rice 100 Gm)",
+    "price": 160,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1760504987185:ECBF1D75F2_1.png",
+    "rating": 4.7,
+    "discount": 44,
+    "inStock": true
+},
+{
+    "id": "394073",
+    "name": "Sampoorti 240 Count Premium Cashew / Kaju - 500 Gm",
+    "price": 598,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768288726021:CE6C47B9E4_1.png",
+    "rating": 4.3,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "393663",
+    "name": "Catch Sprinklers Black Pepper - 100 Gm",
+    "price": 175,
+    "category": "grocery",
+    "image": "https://media.dealshare.in/img/offer/1724603572833:D33427F65C_1.webp",
+    "rating": 4.4,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "394463",
+    "name": "Sampoorti Jaggery Powder - 500 Gm",
+    "price": 25,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768306802155:29199BFF78_1.png",
+    "rating": 4.2,
+    "discount": 73,
+    "inStock": true
+},
+{
+    "id": "402468",
+    "name": "Jivo Pomace Olive Oil - 1 Ltr",
+    "price": 485,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757577892111:KBAC20AB4E_1.png",
+    "rating": 4.1,
+    "discount": 53,
+    "inStock": true
+},
+{
+    "id": "393965",
+    "name": "MDH Black Pepper Powder - 100 Gm",
+    "price": 163,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506753:5DEC309CD3_1.png",
+    "rating": 4.1,
+    "discount": 10,
+    "inStock": true
+},
+{
+    "id": "396792",
+    "name": "Borges Extra light Olive Oil Glass - 250 Ml",
+    "price": 429,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1754374760717:4F822D45F1_1.png",
+    "rating": 4.1,
+    "discount": 14,
+    "inStock": true
+},
+{
+    "id": "393921",
+    "name": "Daawat Biryani Basmati Rice - 1 Kg",
+    "price": 230,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761715508300:4A45F32D38_1.png",
+    "rating": 4.2,
+    "discount": 8,
+    "inStock": true
+},
+{
+    "id": "393026",
+    "name": "MDH Jeera Powder - 100 gm",
+    "price": 87,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767351506847:38A8754376_1.png",
+    "rating": 4.5,
+    "discount": 6,
+    "inStock": true
+},
+{
+    "id": "406079",
+    "name": "Super Saver Desi Toor / Arhar Dal) - 1 Kg",
+    "price": 89,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768493224295U4A92E33FD_1.png",
+    "rating": 4.1,
+    "discount": 59,
+    "inStock": true
+},
+{
+    "id": "394716",
+    "name": "Super Saver Almond / Badam  - 500 Gm",
+    "price": 408,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255678:8E85208F2B_1.png",
+    "rating": 4.6,
+    "discount": 39,
+    "inStock": true
+},
+{
+    "id": "395788",
+    "name": "Rajbhog Makhana - 250 Gm",
+    "price": 299,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767609150487:01ACB0A0F9_1.png",
+    "rating": 4.3,
+    "discount": 50,
+    "inStock": true
+},
+{
+    "id": "394724",
+    "name": "Super Saver Cashew / Kaju - 500 Gm",
+    "price": 479,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255597:6FB612C11A_1.png",
+    "rating": 4.9,
+    "discount": 31,
+    "inStock": true
+},
+{
+    "id": "394329",
+    "name": "India Gate Mini Mogra 2 Basmati Rice (broken) - 10 Kg",
+    "price": 469,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741262715:1462BDC644_1.png",
+    "rating": 4.5,
+    "discount": 21,
+    "inStock": true
+},
+{
+    "id": "406393",
+    "name": "Prov Select Almond - 400 Gm",
+    "price": 319,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768530392073LB4F94CDE7_1.png",
+    "rating": 4.1,
+    "discount": 46,
+    "inStock": true
+},
+{
+    "id": "402719",
+    "name": "Fortune Refined Soyabean Oil - 750 Gm",
+    "price": 131,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757929561460:CF8B3C3EF3_1.png",
+    "rating": 4.4,
+    "discount": 15,
+    "inStock": true
+},
+{
+    "id": "393246",
+    "name": "Mishti Dhampur Premium Quality Sugar - 5 Kg",
+    "price": 240,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878300:B7CD19D974_1.png",
+    "rating": 4.6,
+    "discount": 23,
+    "inStock": true
+},
+{
+    "id": "401142",
+    "name": "Sampoorti Whole Wheat Chakki Atta - 10 Kg",
+    "price": 350,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767755158277:UF23B4C06A_1.png",
+    "rating": 4.1,
+    "discount": 22,
+    "inStock": true
+},
+{
+    "id": "404398",
+    "name": "Sampoorti Whole Wheat Chakki Atta - 5 Kg",
+    "price": 190,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767755158844:Z01F69E67B_1.png",
+    "rating": 4.2,
+    "discount": 24,
+    "inStock": true
+},
+  {
+    "id": "500",
+    "name": "Fortune Refined Soyabean Oil - 750 Gm",
+    "price": 131,
+    "discount": 15,
+    "category": "cooking-oil",
+    "image": "https://images.dealshare.in/1757929561460:CF8B3C3EF3_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "501",
+    "name": "Fortune Refined Soyabean Oil - 750 Gm x 3",
+    "price": 393,
+    "discount": 15,
+    "category": "cooking-oil",
+    "image": "https://images.dealshare.in/1750675945415P3.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "502",
+    "name": "Saras Shudh Ghee - 1 Ltr",
+    "price": 541,
+    "discount": 2,
+    "category": "ghee-vanaspati",
+    "image": "https://media.dealshare.in/img/offer/1758785477585:CF8B3C3EF3_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "503",
+    "name": "Parampara Refined Soyabean Oil - 750 Gm x 3",
+    "price": 357,
+    "discount": 18,
+    "category": "cooking-oil",
+    "image": "https://media.dealshare.in/img/offer/1751009427827:2B8DC1E79E_1.png",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "504",
+    "name": "Amul Pure Ghee (Carton) - 1 Ltr",
+    "price": 545,
+    "discount": 5,
+    "category": "ghee-vanaspati",
+    "image": "https://media.dealshare.in/img/offer/1767876845615:AAB426696E_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "505",
+    "name": "King's Refined Soyabean Oil - 750 Gm",
+    "price": 120,
+    "discount": 14,
+    "category": "cooking-oil",
+    "image": "https://media.dealshare.in/img/offer/1751010093034:789AFF118B_1.png",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "506",
+    "name": "Sampoorti Whole Wheat Chakki Atta - 10 Kg",
+    "price": 350,
+    "discount": 22,
+    "category": "flours-grains",
+    "image": "https://images.dealshare.in/1767755158277:UF23B4C06A_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "507",
+    "name": "Sampoorti Whole Wheat Chakki Atta - 5 Kg",
+    "price": 190,
+    "discount": 24,
+    "category": "flours-grains",
+    "image": "https://images.dealshare.in/1767755158844:Z01F69E67B_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "508",
+    "name": "Shree Mansha Foods Mp Whole Wheat Chakki Atta - 10 Kg",
+    "price": 340,
+    "discount": 24,
+    "category": "flours-grains",
+    "image": "https://images.dealshare.in/1767768853618:C9B30E2A6B_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "509",
+    "name": "Laxmi Bhog Chakki Fresh Atta - 10 Kg",
+    "price": 399,
+    "discount": 17,
+    "category": "flours-grains",
+    "image": "https://images.dealshare.in/1767768854103:D28158C611_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "510",
+    "name": "Laxmi Bhog Chakki Fresh Atta - 5 Kg",
+    "price": 205,
+    "discount": 16,
+    "category": "flours-grains",
+    "image": "https://images.dealshare.in/1767358873880:4FC75FB55D_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "511",
+    "name": "Shree Mansha Foods Mp Whole Wheat Chakki Atta - 5 Kg",
+    "price": 185,
+    "discount": 20,
+    "category": "flours-grains",
+    "image": "https://images.dealshare.in/1767358875390:9F0A402561_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "512",
+    "name": "Super Saver Desi Toor / Arhar Dal - 1 Kg",
+    "price": 89,
+    "discount": 60,
+    "category": "dals-pulses",
+    "image": "https://images.dealshare.in/1768493224295U4A92E33FD_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "513",
+    "name": "India Gate Mini Mogra 2 Basmati Rice (broken) - 10 Kg",
+    "price": 469,
+    "discount": 22,
+    "category": "rice-products",
+    "image": "https://images.dealshare.in/1761741262715:1462BDC644_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "514",
+    "name": "Super Saver Masoor Malka Dal - 1 Kg",
+    "price": 99,
+    "discount": 60,
+    "category": "dals-pulses",
+    "image": "https://images.dealshare.in/1768028256593:F2DCDE881F_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "515",
+    "name": "Fortune Rozana Super Basmati Rice - 5 Kg",
+    "price": 315,
+    "discount": 32,
+    "category": "rice-products",
+    "image": "https://images.dealshare.in/1753957334049:FD985FD379_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "516",
+    "name": "Super Saver Toor / Arhar Dal - 1 Kg",
+    "price": 120,
+    "discount": 52,
+    "category": "dals-pulses",
+    "image": "https://images.dealshare.in/1768028256499:E74C229A5E_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  },
+  {
+    "id": "517",
+    "name": "Super Saver Moong Dhuli Dal - 1 Kg",
+    "price": 111,
+    "discount": 37,
+    "category": "dals-pulses",
+    "image": "https://images.dealshare.in/1768028256603:F4B71649D4_1.png?tr=f-webp",
+    "rating": 4.5,
+    "inStock": true
+  }
+];
