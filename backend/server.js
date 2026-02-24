@@ -19,7 +19,7 @@ app.use('/api/cart', require('./routes/cartRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://nitesh2002:NITESH2002@ac-nbyp4ot-shard-00-00.n97xear.mongodb.net:27017,ac-nbyp4ot-shard-00-01.n97xear.mongodb.net:27017,ac-nbyp4ot-shard-00-02.n97xear.mongodb.net:27017/?ssl=true&replicaSet=atlas-w5lxvf-shard-0&authSource=admin&appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/online-grocery-store';
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
