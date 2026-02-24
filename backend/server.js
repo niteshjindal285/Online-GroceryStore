@@ -18,14 +18,17 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/cart', require('./routes/cartRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/online-grocery-store';
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/online-grocery-store')
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    // Start server ONLY after DB connects
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
   })
-  .catch(err => {
-    console.error('MongoDB connection error:', err);
+  .catch((err) => {
+    console.error('MongoDB connection failed:', err.message);
+    process.exit(1);
   });
