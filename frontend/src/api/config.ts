@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-// Use same base URL logic as config
-const baseURL = import.meta.env.MODE === 'production'
-    ? 'https://grocery-backend-s54s.onrender.com/api'
-    : 'http://localhost:5000/api';
+const baseURL = 'https://grocery-backend-s54s.onrender.com/api';
 
 const api = axios.create({
     baseURL,
