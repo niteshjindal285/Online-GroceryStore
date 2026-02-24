@@ -44,7 +44,7 @@ const SignupPage: React.FC = () => {
     try {
       const success = await signup(formData);
       if (success) {
-        navigate('/dashboard');
+        navigate('/home');
       } else {
         setError('Failed to create account. Please try again.');
       }

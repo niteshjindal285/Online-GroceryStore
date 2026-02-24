@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPin, Check, CreditCard, Truck, AlertCircle, ExternalLink } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
+import { useAuth } from '../contexts/AuthContext';
+import api from '../api/config';
+
 const CheckoutPage: React.FC = () => {
   const { items, getTotalPrice, clearCart } = useCart();
-  // const { user } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const [deliveryAddress, setDeliveryAddress] = useState({
@@ -79,18 +82,28 @@ const CheckoutPage: React.FC = () => {
     }
 
     setIsProcessing(true);
-    setTimeout(() => {
-      const order = {
-        id: Date.now().toString(), items, total, deliveryAddress,
-        paymentMethod: 'Cash on Delivery', status: 'confirmed',
-        estimatedDelivery: new Date(Date.now() + 30 * 60 * 1000).toLocaleString()
+    try {
+      if (!user) {
+        alert("Please log in to place an order.");
+        navigate('/login');
+        return;
+      }
+
+      const orderPayload = {
+        items: items.map(i => ({ product: i.id, qty: i.quantity, price: i.price })),
+        shippingAddress: deliveryAddress,
+        totalPrice: total
       };
-      const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
-      existingOrders.push(order);
-      localStorage.setItem('orders', JSON.stringify(existingOrders));
+
+      await api.post('/orders', orderPayload);
       clearCart();
-      navigate('/orders');
-    }, 2000);
+      navigate('/dashboard'); // Temporarily navigating to dashboard since orders page might need rewrite
+    } catch (err) {
+      console.error("Checkout failed", err);
+      alert("Failed to place order. Please try again.");
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Search } from "lucide-react";
-import { mockProducts, Product } from "../data/mockProducts";
+import { Product } from "../data/mockProducts";
+import { getProducts } from "../utils/productUtils";
 import { useCart } from "../contexts/CartContext";
 import { Link, useSearchParams } from "react-router-dom";
 
@@ -31,7 +32,15 @@ const UserDashboard: React.FC = () => {
     { id: "electronics", name: "Electronics & Accessories" },
   ];
 
-  const products = mockProducts;
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());

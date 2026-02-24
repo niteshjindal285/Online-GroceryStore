@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock, Truck, Shield, MapPin, Phone, Mail, Users, Award } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
@@ -75,11 +75,18 @@ const HomePage: React.FC = () => {
       id: "personal-care",
       name: "Personal Care",
       image: "https://images.dealshare.in/1740735585278luc_kolHPCOralCare.jpg?tr=f-webp",
-      count: "120+ Items",
     },
   ];
 
-  const featuredProducts = getProducts().slice(0, 8);
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setFeaturedProducts(data.slice(0, 8));
+    };
+    fetchProducts();
+  }, []);
 
   const features = [
     {
@@ -222,7 +229,7 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6">
-            {featuredProducts.map((product, i) => (
+            {featuredProducts.map((product: Product, i: number) => (
               <div key={i} className="glass-card-solid p-4 flex flex-col relative group">
                 {product.discount > 0 && (
                   <div className="absolute top-0 left-0 bg-rose-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-xl rounded-tl-xl z-10 w-max shadow-sm">

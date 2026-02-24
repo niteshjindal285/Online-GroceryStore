@@ -1,81 +1,59 @@
-import { Product, mockProducts } from '../data/mockProducts';
+import api from '../api/config';
+import { Product } from '../data/mockProducts';
 
-export const getProducts = (): Product[] => {
+// GET all products from the real MongoDB database
+export const getProducts = async (): Promise<Product[]> => {
     try {
-        const addedStr = localStorage.getItem('addedProducts');
-        const addedProducts: Product[] = addedStr ? JSON.parse(addedStr) : [];
+        const response = await api.get('/products');
 
-        const deletedStr = localStorage.getItem('deletedProductIds');
-        const deletedIds: string[] = deletedStr ? JSON.parse(deletedStr) : [];
-
-        const editedStr = localStorage.getItem('editedProducts');
-        const editedProducts: Record<string, Product> = editedStr ? JSON.parse(editedStr) : {};
-
-        const allBaseProducts = [...mockProducts, ...addedProducts];
-
-        return allBaseProducts
-            .filter(p => !deletedIds.includes(p.id))
-            .map(p => editedProducts[p.id] ? editedProducts[p.id] : p);
-
+        // Map _id to id to match the frontend Product interface
+        return response.data.map((p: any) => ({
+            ...p,
+            id: p._id
+        }));
     } catch (e) {
-        console.error("Error reading from localStorage", e);
-        return mockProducts;
+        console.error("Error fetching products from API", e);
+        return [];
     }
 };
 
-export const addProduct = (product: Product): Product => {
+// POST new product to MongoDB
+export const addProduct = async (productData: Omit<Product, 'id'>): Promise<Product | null> => {
     try {
-        const customProductsStr = localStorage.getItem('addedProducts');
-        const customProducts: Product[] = customProductsStr ? JSON.parse(customProductsStr) : [];
-        customProducts.push(product);
-        localStorage.setItem('addedProducts', JSON.stringify(customProducts));
-        return product;
+        const response = await api.post('/products', productData);
+        return {
+            ...response.data,
+            id: response.data._id
+        };
     } catch (e) {
-        console.error("Error writing to localStorage", e);
-        return product;
+        console.error("Error adding product to API", e);
+        return null;
     }
 };
 
-export const deleteProduct = (id: string): void => {
+// DELETE product from MongoDB
+export const deleteProduct = async (id: string): Promise<boolean> => {
     try {
-        const addedStr = localStorage.getItem('addedProducts');
-        const addedProducts: Product[] = addedStr ? JSON.parse(addedStr) : [];
-        const addedIndex = addedProducts.findIndex(p => p.id === id);
-
-        if (addedIndex !== -1) {
-            addedProducts.splice(addedIndex, 1);
-            localStorage.setItem('addedProducts', JSON.stringify(addedProducts));
-            return;
-        }
-
-        const deletedStr = localStorage.getItem('deletedProductIds');
-        const deletedIds: string[] = deletedStr ? JSON.parse(deletedStr) : [];
-        if (!deletedIds.includes(id)) {
-            deletedIds.push(id);
-            localStorage.setItem('deletedProductIds', JSON.stringify(deletedIds));
-        }
+        // Warning: The backend doesn't currently have a DELETE route, this simulates hitting it
+        // A real implementation requires updating backend routes too.
+        await api.delete(`/products/${id}`);
+        return true;
     } catch (e) {
         console.error("Error deleting product", e);
+        return false;
     }
 };
 
-export const editProduct = (product: Product): void => {
+// PUT product update
+export const editProduct = async (id: string, updatedData: Partial<Product>): Promise<Product | null> => {
     try {
-        const addedStr = localStorage.getItem('addedProducts');
-        const addedProducts: Product[] = addedStr ? JSON.parse(addedStr) : [];
-        const addedIndex = addedProducts.findIndex(p => p.id === product.id);
-
-        if (addedIndex !== -1) {
-            addedProducts[addedIndex] = product;
-            localStorage.setItem('addedProducts', JSON.stringify(addedProducts));
-            return;
-        }
-
-        const editedStr = localStorage.getItem('editedProducts');
-        const editedProducts: Record<string, Product> = editedStr ? JSON.parse(editedStr) : {};
-        editedProducts[product.id] = product;
-        localStorage.setItem('editedProducts', JSON.stringify(editedProducts));
+        const response = await api.put(`/products/${id}`, updatedData);
+        return {
+            ...response.data,
+            id: response.data._id
+        };
     } catch (e) {
         console.error("Error editing product", e);
+        return null;
     }
 };

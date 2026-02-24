@@ -30,9 +30,9 @@ router.get('/:id', async (req, res) => {
 
 // Admin: add product with image
 router.post('/', upload.single('image'), async (req, res) => {
-  const { name, description, price, countInStock } = req.body;
+  const { name, description, price, countInStock, category, rating, discount, inStock } = req.body;
   const image = req.file ? `/uploads/products/${req.file.filename}` : req.body.image;
-  const product = new Product({ name, description, price, countInStock, image });
+  const product = new Product({ name, description, price, countInStock, image, category, rating, discount, inStock });
   await product.save();
   res.status(201).json(product);
 });

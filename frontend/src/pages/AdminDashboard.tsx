@@ -36,7 +36,11 @@ const AdminDashboard: React.FC = () => {
   ];
 
   useEffect(() => {
-    setProducts(getProducts());
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+    };
+    fetchProducts();
   }, []);
 
   const handleOpenAddModal = () => {
@@ -57,17 +61,18 @@ const AdminDashboard: React.FC = () => {
     setIsModalOpen(true);
   };
 
-  const handleDeleteProduct = (id: string) => {
+  const handleDeleteProduct = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
-      deleteProduct(id);
-      setProducts(getProducts());
+      await deleteProduct(id);
+      const data = await getProducts();
+      setProducts(data);
     }
   };
 
-  const handleSaveProduct = (e: React.FormEvent) => {
+  const handleSaveProduct = async (e: React.FormEvent) => {
     e.preventDefault();
-    const product: Product = {
-      id: editingId || Date.now().toString(),
+    const product: any = {
+      ...(editingId ? { id: editingId } : {}),
       name: newProduct.name,
       category: newProduct.category,
       price: newProduct.price,
@@ -78,12 +83,13 @@ const AdminDashboard: React.FC = () => {
     };
 
     if (editingId) {
-      editProduct(product);
+      await editProduct(editingId, product);
     } else {
-      addProduct(product);
+      await addProduct(product);
     }
 
-    setProducts(getProducts());
+    const data = await getProducts();
+    setProducts(data);
     setIsModalOpen(false);
   };
 

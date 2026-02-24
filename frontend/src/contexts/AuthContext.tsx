@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import api from '../api/config';
 
 interface User {
   id: string;
@@ -34,53 +35,51 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = async (email: string, password: string): Promise<User | null> => {
-    // Mock login - in real app, this would call an API
     setIsLoading(true);
+    try {
+      const response = await api.post('/users/login', { email, password });
+      const { token, user: loggedInUser } = response.data;
 
-    // Demo users for different roles - Admin simulates proper system owner verification
-    const demoUsers = [
-      { id: '1', email: 'customer@test.com', password: 'password', name: 'John Doe', role: 'customer' as const },
-      { id: '2', email: 'vendor@test.com', password: 'password', name: 'Jane Smith', role: 'vendor' as const },
-      { id: '3', email: 'admin@test.com', password: 'AdminStoreFront2026!', name: 'System Admin', role: 'admin' as const }
-    ];
+      setUser(loggedInUser);
+      localStorage.setItem('user', JSON.stringify(loggedInUser));
+      localStorage.setItem('token', token);
 
-    const foundUser = demoUsers.find(u => u.email === email && u.password === password);
-
-    if (foundUser) {
-      const { password, ...userWithoutPassword } = foundUser;
-      setUser(userWithoutPassword);
-      localStorage.setItem('user', JSON.stringify(userWithoutPassword));
       setIsLoading(false);
-      return userWithoutPassword;
+      return loggedInUser;
+    } catch (error) {
+      console.error('Login failed:', error);
+      setIsLoading(false);
+      return null;
     }
-
-    setIsLoading(false);
-    return null;
   };
 
 
   const signup = async (userData: Omit<User, 'id'> & { password: string }): Promise<boolean> => {
-    // Mock signup - in real app, this would call an API
     setIsLoading(true);
+    try {
+      const response = await api.post('/users/register', {
+        name: userData.name,
+        email: userData.email,
+        password: userData.password
+      });
+      const { token, user: newUser } = response.data;
 
-    const newUser: User = {
-      id: Date.now().toString(),
-      email: userData.email,
-      name: userData.name,
-      role: userData.role,
-      phone: userData.phone,
-      address: userData.address
-    };
+      setUser(newUser);
+      localStorage.setItem('user', JSON.stringify(newUser));
+      localStorage.setItem('token', token);
 
-    setUser(newUser);
-    localStorage.setItem('user', JSON.stringify(newUser));
-    setIsLoading(false);
-    return true;
+      setIsLoading(false);
+      return true;
+    } catch (error) {
+      console.error('Signup failed:', error);
+      setIsLoading(false);
+      return false;
+    }
   };
-
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
 
   const updateProfile = (userData: Partial<User>) => {
