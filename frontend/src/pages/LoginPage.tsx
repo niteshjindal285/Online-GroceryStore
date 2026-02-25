@@ -171,32 +171,6 @@ const LoginPage: React.FC = () => {
               </button>
             </form>
 
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-3 bg-white text-gray-400">Demo Accounts</span>
-                </div>
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {[
-                  { label: 'Customer', email: 'customer@test.com' },
-                  { label: 'Vendor', email: 'vendor@test.com' },
-                  { label: 'Admin', email: 'admin@test.com' },
-                ].map((demo) => (
-                  <button
-                    key={demo.label}
-                    onClick={() => { setEmail(demo.email); setPassword('password'); }}
-                    className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-xs text-gray-600 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 transition-all duration-200"
-                  >
-                    {demo.label}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-500">
