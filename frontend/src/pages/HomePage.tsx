@@ -83,7 +83,8 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await getProducts();
-      setFeaturedProducts(data.slice(0, 8));
+      const availableProducts = data.filter(product => product.inStock);
+      setFeaturedProducts(availableProducts.slice(0, 8));
     };
     fetchProducts();
   }, []);

@@ -37,4 +37,47 @@ router.post('/', upload.single('image'), async (req, res) => {
   res.status(201).json(product);
 });
 
+// Update product
+router.put('/:id', upload.single('image'), async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
+
+    const { name, description, price, countInStock, category, rating, discount, inStock } = req.body;
+
+    product.name = name || product.name;
+    product.description = description || product.description;
+    product.price = price !== undefined ? price : product.price;
+    product.countInStock = countInStock !== undefined ? countInStock : product.countInStock;
+    product.category = category || product.category;
+    product.rating = rating !== undefined ? rating : product.rating;
+    product.discount = discount !== undefined ? discount : product.discount;
+    product.inStock = inStock !== undefined ? inStock : product.inStock;
+
+    if (req.file) {
+      product.image = `/uploads/products/${req.file.filename}`;
+    } else if (req.body.image) {
+      product.image = req.body.image;
+    }
+
+    const updatedProduct = await product.save();
+    res.json(updatedProduct);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Delete product
+router.delete('/:id', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
+
+    await Product.deleteOne({ _id: req.params.id });
+    res.json({ message: 'Product removed' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;

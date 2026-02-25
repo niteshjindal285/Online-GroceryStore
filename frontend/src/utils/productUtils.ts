@@ -34,8 +34,6 @@ export const addProduct = async (productData: Omit<Product, 'id'>): Promise<Prod
 // DELETE product from MongoDB
 export const deleteProduct = async (id: string): Promise<boolean> => {
     try {
-        // Warning: The backend doesn't currently have a DELETE route, this simulates hitting it
-        // A real implementation requires updating backend routes too.
         await api.delete(`/products/${id}`);
         return true;
     } catch (e) {

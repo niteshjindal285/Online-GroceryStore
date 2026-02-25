@@ -43,6 +43,7 @@ const UserDashboard: React.FC = () => {
   }, []);
 
   const filteredProducts = products.filter((product) => {
+    if (!product.inStock) return false;
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
     return matchesSearch && matchesCategory;

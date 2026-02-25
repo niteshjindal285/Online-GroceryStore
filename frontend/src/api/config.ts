@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const baseURL = 'https://grocery-backend-s54s.onrender.com/api';
+// Use local backend for development, fallback to render for production
+const baseURL = import.meta.env.DEV
+    ? 'http://localhost:5000/api'
+    : 'https://grocery-backend-s54s.onrender.com/api';
 
 const api = axios.create({
     baseURL,

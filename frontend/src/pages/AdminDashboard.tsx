@@ -10,7 +10,7 @@ const AdminDashboard: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [newProduct, setNewProduct] = useState({
-    name: '', category: 'grocery', price: 0, stock: 100, image: 'https://media.dealshare.in/img/no-image.jpg'
+    name: '', category: 'grocery', price: 0, stock: 100, image: 'https://media.dealshare.in/img/no-image.jpg', inStock: true
   });
 
   // Calculate dynamic stats based on actual products
@@ -45,7 +45,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleOpenAddModal = () => {
     setEditingId(null);
-    setNewProduct({ name: '', category: 'grocery', price: 0, stock: 100, image: 'https://media.dealshare.in/img/no-image.jpg' });
+    setNewProduct({ name: '', category: 'grocery', price: 0, stock: 100, image: 'https://media.dealshare.in/img/no-image.jpg', inStock: true });
     setIsModalOpen(true);
   };
 
@@ -56,7 +56,8 @@ const AdminDashboard: React.FC = () => {
       category: product.category,
       price: product.price,
       stock: product.inStock ? 100 : 0,
-      image: product.image
+      image: product.image,
+      inStock: product.inStock
     });
     setIsModalOpen(true);
   };
@@ -79,7 +80,7 @@ const AdminDashboard: React.FC = () => {
       image: newProduct.image,
       rating: 4.5,
       discount: 0,
-      inStock: newProduct.stock > 0
+      inStock: newProduct.inStock
     };
 
     if (editingId) {
@@ -347,17 +348,30 @@ const AdminDashboard: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                  <select
-                    value={newProduct.category}
-                    onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  >
-                    {['spices-herbs', 'cooking-oil', 'sugar-salt-jaggery', 'flours-grains', 'rice-products', 'dals-pulses', 'ghee-vanaspati', 'dry-fruits-nuts', 'beverages', 'cleaning-home-care', 'personal-care', 'fruits-veggies', 'electronics', 'grocery'].map(cat => (
-                      <option key={cat} value={cat}>{cat.replace('-', ' ')}</option>
-                    ))}
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select
+                      value={newProduct.category}
+                      onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
+                      className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    >
+                      {['spices-herbs', 'cooking-oil', 'sugar-salt-jaggery', 'flours-grains', 'rice-products', 'dals-pulses', 'ghee-vanaspati', 'dry-fruits-nuts', 'beverages', 'cleaning-home-care', 'personal-care', 'fruits-veggies', 'electronics', 'grocery'].map(cat => (
+                        <option key={cat} value={cat}>{cat.replace('-', ' ')}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Stock Status</label>
+                    <select
+                      value={newProduct.inStock ? "true" : "false"}
+                      onChange={(e) => setNewProduct({ ...newProduct, inStock: e.target.value === "true" })}
+                      className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    >
+                      <option value="true">In Stock</option>
+                      <option value="false">Out of Stock</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div>
