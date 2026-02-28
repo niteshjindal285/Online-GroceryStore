@@ -12,8 +12,8 @@ const HomePage: React.FC = () => {
 
   const categories = [
     {
-      id: "spices-herbs",
-      name: "Variety spices and herbs",
+      id: "spices herbs",
+      name: "spices herbs",
       image: "https://as2.ftcdn.net/v2/jpg/02/89/44/67/1000_F_289446727_vRX6ctHc8dkaeT0zcKnHSu2w5TWOVtJH.jpg",
       count: "120+ Items",
     },
