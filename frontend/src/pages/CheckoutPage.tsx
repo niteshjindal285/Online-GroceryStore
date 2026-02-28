@@ -186,7 +186,7 @@ const CheckoutPage: React.FC = () => {
                           }
                         </p>
                         <a
-                          href="https://www.google.com/maps/search/?api=1&query=Balaji+Trading+Company,+Bank+Colony,+Murlipura,+Jaipur,+Rajasthan+302039"
+                          href="https://www.google.com/maps/place/Balaji+Trading+Company/@26.9719313,75.7559179,17z/data=!4m10!1m2!2m1!1sBalaji+Trading+Company,+Bank+Colony,+Murlipura,+Jaipur,+Rajasthan+302039!3m6!1s0x396db3ad15f8db4b:0xb86e769ea6c13a5b!8m2!3d26.9719313!4d75.7606815!15sCkhCYWxhamkgVHJhZGluZyBDb21wYW55LCBCYW5rIENvbG9ueSwgTXVybGlwdXJhLCBKYWlwdXIsIFJhamFzdGhhbiAzMDIwMzlaRiJEYmFsYWppIHRyYWRpbmcgY29tcGFueSBiYW5rIGNvbG9ueSBtdXJsaXB1cmEgamFpcHVyIHJhamFzdGhhbiAzMDIwMzmSARVmbWNnX2dvb2RzX3dob2xlc2FsZXLgAQA!16s%2Fg%2F11shj0ygd6?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center text-sm font-semibold text-amber-800 hover:text-amber-900 transition-colors bg-amber-200/50 hover:bg-amber-200 px-3 py-1.5 rounded-lg"
