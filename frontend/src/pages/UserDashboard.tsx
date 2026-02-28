@@ -19,7 +19,7 @@ const UserDashboard: React.FC = () => {
     { id: "all", name: "All Products" },
     { id: "spices herbs", name: "Spices Herbs" },
     { id: "cooking oil", name: "Cooking Oil" },
-    { id: "sugar salt jaggery", name: "Sugar Salt Jaggery" },
+    { id: "sugar-salt-jaggery", name: "Sugar, Salt & Jaggery" },
     { id: "flours grains", name: "Flours Grains" },
     { id: "rice products", name: "Rice Products" },
     { id: "dals pulses", name: "Dals Pulses" },
