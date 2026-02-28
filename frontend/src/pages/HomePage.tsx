@@ -24,8 +24,8 @@ const HomePage: React.FC = () => {
       count: "95+ Items",
     },
     {
-      id: "sugar salt-jaggery",
-      name: "sugar salt-jaggery",
+      id: "sugar-salt-jaggery",
+      name: "Sugar, Salt & Jaggery",
       image: "https://images.dealshare.in/1757134885382Sugar,Salt&Jaggery.png?tr=f-webp",
       count: "80+ Items",
     },
