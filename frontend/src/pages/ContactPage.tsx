@@ -25,7 +25,7 @@ const ContactPage: React.FC = () => {
   };
 
   const contactInfo = [
-    { icon: <Phone className="h-6 w-6" />, title: 'Phone', details: ['81******38'], gradient: 'from-blue-500 to-indigo-500' },
+    { icon: <Phone className="h-6 w-6" />, title: 'Phone', details: ['8107205038'], gradient: 'from-blue-500 to-indigo-500' },
     { icon: <Mail className="h-6 w-6" />, title: 'Email', details: ['jindalnitesh285@gmail.com'], gradient: 'from-emerald-500 to-teal-500' },
     { icon: <MapPin className="h-6 w-6" />, title: 'Address', details: ['Balaji Trading Company, Bank Colony, Murlipura, Jaipur, Rajasthan 302039'], gradient: 'from-purple-500 to-violet-500' },
     { icon: <Clock className="h-6 w-6" />, title: 'Hours', details: ['Mon-Fri: 6:00 AM - 11:00 PM', 'Sat-Sun: 7:00 AM - 10:00 PM'], gradient: 'from-amber-500 to-orange-500' },
