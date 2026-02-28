@@ -17,19 +17,19 @@ const UserDashboard: React.FC = () => {
 
   const categories = [
     { id: "all", name: "All Products" },
-    { id: "spices-herbs", name: "Spices & Herbs" },
-    { id: "cooking-oil", name: "Cooking Oil" },
-    { id: "sugar-salt-jaggery", name: "Sugar, Salt & Jaggery" },
-    { id: "flours-grains", name: "Flours & Grains" },
-    { id: "rice-products", name: "Rice & Rice Products" },
-    { id: "dals-pulses", name: "Dals & Pulses" },
-    { id: "ghee-vanaspati", name: "Ghee & Vanaspati" },
-    { id: "dry-fruits-nuts", name: "Dry Fruits & Nuts" },
+    { id: "spices herbs", name: "Spices Herbs" },
+    { id: "cooking oil", name: "Cooking Oil" },
+    { id: "sugar salt jaggery", name: "Sugar Salt Jaggery" },
+    { id: "flours grains", name: "Flours Grains" },
+    { id: "rice products", name: "Rice Products" },
+    { id: "dals pulses", name: "Dals Pulses" },
+    { id: "ghee vanaspati", name: "Ghee Vanaspati" },
+    { id: "dry fruits-nuts", name: "Dry Fruits Nuts" },
     { id: "beverages", name: "Beverages" },
-    { id: "cleaning-home-care", name: "Cleaning & Home Care" },
-    { id: "personal-care", name: "Personal Care" },
-    { id: "fruits-veggies", name: "Fruits & Veggies" },
-    { id: "electronics", name: "Electronics & Accessories" },
+    { id: "cleaningn home-care", name: "Cleaning Home Care" },
+    { id: "personal care", name: "Personal Care" },
+    { id: "fruits veggies", name: "Fruits Veggies" },
+    { id: "electronics", name: "Electronics Accessories" },
   ];
 
   const [products, setProducts] = useState<Product[]>([]);
