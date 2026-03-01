@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
+import { ToastProvider } from './contexts/ToastContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -23,9 +25,11 @@ import OrderDetails from './pages/OrderDetails';
 
 function App() {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <Router basename="/Online-GroceryStore">
+    <ErrorBoundary>
+      <AuthProvider>
+        <CartProvider>
+          <ToastProvider>
+            <Router basename="/Online-GroceryStore">
           <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
             <Navbar />
             <main className="pb-16">
@@ -82,8 +86,10 @@ function App() {
             <Footer />
           </div>
         </Router>
+        </ToastProvider>
       </CartProvider>
     </AuthProvider>
+    </ErrorBoundary>
   );
 }
 
