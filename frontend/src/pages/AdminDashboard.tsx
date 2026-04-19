@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Package, ShoppingCart, Users, TrendingUp,
   Plus, Edit, Trash2, X, Loader2, AlertCircle,
-  LayoutDashboard, Settings, ChevronRight, Search, BarChart3
+  LayoutDashboard, Settings, ChevronRight, Search, BarChart3, Truck, Tag, Receipt
 } from 'lucide-react';
 import { getProducts, addProduct, editProduct, deleteProduct } from '../utils/productUtils';
 import { Product } from '../data/mockProducts';
@@ -13,6 +14,7 @@ const inputClass =
   'w-full px-4 py-2.5 bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 hover:border-gray-300 transition-all duration-200 placeholder-gray-400';
 
 const AdminDashboard: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
   const { showToast } = useToast();
 
@@ -65,6 +67,7 @@ const AdminDashboard: React.FC = () => {
     { id: 'products', label: 'Products', icon: Package },
     { id: 'orders', label: 'Orders', icon: ShoppingCart },
     { id: 'users', label: 'Users', icon: Users },
+    { id: 'erp', label: 'ERP', icon: Settings },
   ];
 
   useEffect(() => {
@@ -418,6 +421,78 @@ const AdminDashboard: React.FC = () => {
               <p className="text-gray-500 font-semibold">User Management Coming Soon</p>
               <p className="text-gray-400 text-sm mt-1">Full user management is under development</p>
             </div>
+          </div>
+        )}
+
+        {/* ── ERP Tab ── */}
+        {activeTab === 'erp' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { 
+                title: 'Inventory Management', 
+                desc: 'Manage products, stock levels, and warehouses.', 
+                href: '/erp/inventory', 
+                icon: Package, 
+                color: 'bg-emerald-50 text-emerald-600' 
+              },
+              { 
+                title: 'Category Management', 
+                desc: 'Organize your products into meaningful groupings.', 
+                href: '/erp/categories', 
+                icon: Tag, 
+                color: 'bg-teal-50 text-teal-600' 
+              },
+              { 
+                title: 'Supplier Management', 
+                desc: 'Manage vendors and procurement processes.', 
+                href: '/erp/suppliers', 
+                icon: Truck, 
+                color: 'bg-blue-50 text-blue-600' 
+              },
+              { 
+                title: 'Customer Management', 
+                desc: 'Manage client profiles and credit records.', 
+                href: '/erp/customers', 
+                icon: Users, 
+                color: 'bg-indigo-50 text-indigo-600' 
+              },
+              { 
+                title: 'Create Bill (POS)', 
+                desc: 'Quickly generate invoices and process sales.', 
+                href: '/erp/billing', 
+                icon: Receipt, 
+                color: 'bg-rose-50 text-rose-600' 
+              },
+              { 
+                title: 'Billing History', 
+                desc: 'Review all generated invoices and transactions.', 
+                href: '/erp/billing-history', 
+                icon: Receipt, 
+                color: 'bg-blue-50 text-blue-600' 
+              },
+              { 
+                title: 'Company Management', 
+                desc: 'Setup and manage your business entities.', 
+                href: '/erp/companies', 
+                icon: Users, 
+                color: 'bg-amber-50 text-amber-600' 
+              }
+            ].map((module, i) => (
+              <div 
+                key={i}
+                onClick={() => navigate(module.href)}
+                className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+              >
+                <div className={`${module.color} p-4 rounded-2xl w-fit mb-4 group-hover:scale-110 transition-transform`}>
+                  <module.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{module.title}</h3>
+                <p className="text-sm text-gray-500 mb-4">{module.desc}</p>
+                <div className="flex items-center text-xs font-bold text-emerald-600 group-hover:translate-x-1 transition-transform">
+                  Access Module <ChevronRight className="h-3 w-3 ml-1" />
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>

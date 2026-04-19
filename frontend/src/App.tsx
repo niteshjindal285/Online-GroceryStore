@@ -22,6 +22,12 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import OrderHistory from './pages/OrderHistory';
 import OrderDetails from './pages/OrderDetails';
+import SupplierManagement from './pages/SupplierManagement';
+import CategoryManagement from './pages/CategoryManagement';
+import CustomerManagement from './pages/CustomerManagement';
+import BillingPage from './pages/BillingPage';
+import BillingHistory from './pages/BillingHistory';
+import CompaniesManagement from './pages/CompaniesManagement';
 
 function App() {
   return (
@@ -77,6 +83,38 @@ function App() {
                 <Route path="/vendor" element={
                   <ProtectedRoute requiredRole="vendor">
                     <VendorDashboard />
+                  </ProtectedRoute>
+                } />
+
+                {/* ERP Routes */}
+                <Route path="/erp/categories" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <CategoryManagement />
+                  </ProtectedRoute>
+                } />
+                <Route path="/erp/customers" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <CustomerManagement />
+                  </ProtectedRoute>
+                } />
+                <Route path="/erp/suppliers" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <SupplierManagement />
+                  </ProtectedRoute>
+                } />
+                <Route path="/erp/billing" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <BillingPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/erp/billing-history" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <BillingHistory />
+                  </ProtectedRoute>
+                } />
+                <Route path="/erp/companies" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <CompaniesManagement />
                   </ProtectedRoute>
                 } />
 
