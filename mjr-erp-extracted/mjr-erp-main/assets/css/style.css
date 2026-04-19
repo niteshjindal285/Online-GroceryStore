@@ -1,0 +1,37 @@
+/**
+ * MJR Group ERP - Custom Styles
+ */
+
+/* Additional custom styles can be added here */
+
+.sidebar .nav-link.active {
+    background-color: #1a2744;
+    color: #fca311;
+    border-left: 3px solid #fca311;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.data-table th {
+    background-color: #1a2744;
+    color: #fca311;
+}
+
+.badge {
+    font-size: 0.85em;
+    padding: 0.4em 0.6em;
+}
+
+.text-muted {
+    color: #a0a3bd !important;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}

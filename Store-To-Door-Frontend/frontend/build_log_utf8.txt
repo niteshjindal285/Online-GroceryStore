@@ -1,0 +1,106 @@
+﻿
+> vite-react-typescript-starter@0.0.0 build
+> vite build
+
+[36mvite v5.4.8 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 39 modules transformed.
+node.exe : [31mx[39m 
+Build failed in 1.49s
+At C:\Program Files\nod
+ejs\npm.ps1:29 char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: ([31mx[39m B   
+ uild failed in 1.4    
+9s:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+[31merror during 
+build:
+[31m[vite:css] 
+[postcss] D:/Store-To-D
+oor-Frontend/Store-To-D
+oor-Frontend/frontend/s
+rc/index.css:108:5: 
+@apply should not be 
+used with the 'group' 
+utility[31m
+file: [36mD:/Store-To-
+Door-Frontend/Store-To-
+Door-Frontend/frontend/
+src/index.css:108:4[31
+m
+    at Input.error (D:\
+Store-To-Door-Frontend\
+Store-To-Door-Frontend\
+frontend\node_modules\p
+ostcss\lib\input.js:106
+:16)
+    at AtRule.error (D:
+\Store-To-Door-Frontend
+\Store-To-Door-Frontend
+\frontend\node_modules\
+postcss\lib\node.js:115
+:32)
+    at processApply (D:
+\Store-To-Door-Frontend
+\Store-To-Door-Frontend
+\frontend\node_modules\
+tailwindcss\lib\lib\exp
+andApplyAtRules.js:377:
+29)
+    at D:\Store-To-Door
+-Frontend\Store-To-Door
+-Frontend\frontend\node
+_modules\tailwindcss\li
+b\lib\expandApplyAtRule
+s.js:551:9
+    at D:\Store-To-Door
+-Frontend\Store-To-Door
+-Frontend\frontend\node
+_modules\tailwindcss\li
+b\processTailwindFeatur
+es.js:55:50
+    at async plugins (D
+:\Store-To-Door-Fronten
+d\Store-To-Door-Fronten
+d\frontend\node_modules
+\tailwindcss\lib\plugin
+.js:38:17)
+    at async 
+LazyResult.runAsync (D:
+\Store-To-Door-Frontend
+\Store-To-Door-Frontend
+\frontend\node_modules\
+postcss\lib\lazy-result
+.js:261:11)
+    at async 
+compileCSS (file:///D:/
+Store-To-Door-Frontend/
+Store-To-Door-Frontend/
+frontend/node_modules/v
+ite/dist/node/chunks/de
+p-CDnG8rE7.js:36860:21)
+    at async 
+Object.transform (file:
+///D:/Store-To-Door-Fro
+ntend/Store-To-Door-Fro
+ntend/frontend/node_mod
+ules/vite/dist/node/chu
+nks/dep-CDnG8rE7.js:361
+41:11)
+    at async transform 
+(file:///D:/Store-To-Do
+or-Frontend/Store-To-Do
+or-Frontend/frontend/no
+de_modules/rollup/dist/
+es/shared/node-entry.js
+:19581:16)[39m

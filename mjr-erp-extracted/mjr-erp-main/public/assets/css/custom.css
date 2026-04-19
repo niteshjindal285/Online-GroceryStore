@@ -1,0 +1,309 @@
+/* Premium Currency Styles matching AI UI */
+.currency-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 50rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 3px solid;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.currency-usd {
+    color: #0dcaf0 !important;
+    border-color: #0dcaf0 !important;
+}
+
+/* Cyan */
+.currency-eur {
+    color: #198754 !important;
+    border-color: #198754 !important;
+}
+
+/* Green */
+.currency-gbp {
+    color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+/* Blue */
+.currency-inr {
+    color: #ffc107 !important;
+    border-color: #ffc107 !important;
+}
+
+/* Yellow/Gold */
+
+/* Styled select for currency */
+select.currency-select {
+    font-weight: 600;
+    border-left: 4px solid #0dcaf0;
+    transition: all 0.3s ease;
+}
+
+select.currency-select[data-currency="USD"] {
+    border-left-color: #0dcaf0;
+    color: #0dcaf0;
+}
+
+select.currency-select[data-currency="EUR"] {
+    border-left-color: #198754;
+    color: #198754;
+}
+
+select.currency-select[data-currency="GBP"] {
+    border-left-color: #0d6efd;
+    color: #0d6efd;
+}
+
+select.currency-select[data-currency="INR"] {
+    border-left-color: #ffc107;
+    color: #ffc107;
+}
+
+/* Darker danger styling for dark theme tables */
+[data-bs-theme="dark"] .table-danger,
+[data-bs-theme="dark"] .table-danger>td {
+    --bs-table-bg: #2a1215 !important;
+    --bs-table-color: #ffbaba !important;
+    --bs-table-border-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+[data-bs-theme="dark"] tr.table-danger:hover td {
+    background-color: #35161a !important;
+}
+
+/* Darker danger badges and borders */
+[data-bs-theme="dark"] .bg-danger {
+    background-color: #a62834 !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger {
+    color: #ff8585 !important;
+    border-color: #a62834 !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger:hover {
+    background-color: #a62834 !important;
+    color: #fff !important;
+}
+
+/* ═════════════ FINANCE & SALES MODULES THEME SUPPORT ═════════════ */
+
+/* Finance Module Theme Support */
+[data-bs-theme="light"] body {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+}
+
+[data-bs-theme="light"] .btn-create-coa {
+    background-color: #0dcaf0 !important;
+    color: #000 !important;
+}
+
+[data-bs-theme="light"] .btn-create-coa:hover {
+    background-color: #0baccc !important;
+    color: #000 !important;
+}
+
+[data-bs-theme="light"] h1.text-white,
+[data-bs-theme="light"] h2.text-white,
+[data-bs-theme="light"] h5.text-white,
+[data-bs-theme="light"] .text-white {
+    color: #212529 !important;
+}
+
+[data-bs-theme="light"] .text-muted {
+    color: #6c757d !important;
+}
+
+[data-bs-theme="light"] .text-primary {
+    color: #0d6efd !important;
+}
+
+[data-bs-theme="light"] .text-info {
+    color: #0dcaf0 !important;
+}
+
+[data-bs-theme="light"] .text-success {
+    color: #198754 !important;
+}
+
+[data-bs-theme="light"] .text-warning {
+    color: #ffc107 !important;
+}
+
+[data-bs-theme="light"] .text-danger {
+    color: #dc3545 !important;
+}
+
+[data-bs-theme="light"] .text-purple {
+    color: #6f42c1 !important;
+}
+
+[data-bs-theme="light"] .text-orange {
+    color: #fd7e14 !important;
+}
+
+[data-bs-theme="light"] .text-secondary {
+    color: #6c757d !important;
+}
+
+/* Sales Module Theme Support */
+[data-bs-theme="dark"] .form-label {
+    color: #cbd5e0 !important;
+}
+
+[data-bs-theme="light"] .form-label {
+    color: #4a5568 !important;
+}
+
+/* ═════════════ BOM / PRODUCTION MODULE LABEL FIX ═════════════ */
+/* Cards with hardcoded bg-dark stay dark in BOTH themes.
+   Make all labels/text-muted inside them readable regardless of theme. */
+
+/* Theme-independent: any .bg-dark card label is always on a dark surface */
+.card.bg-dark .form-label,
+.card.bg-dark label,
+.card.bg-dark .text-muted,
+.bg-dark .form-label,
+.bg-dark label.text-muted {
+    color: #adb5bd !important;
+}
+
+/* Override Bootstrap's light-theme .text-muted (#6c757d) inside dark cards */
+[data-bs-theme="light"] .card.bg-dark .text-muted,
+[data-bs-theme="light"] .card.bg-dark .form-label,
+[data-bs-theme="light"] .card.bg-dark label,
+[data-bs-theme="light"] .bg-dark .text-muted {
+    color: #adb5bd !important;
+}
+
+/* Dark theme boost (in case Bootstrap overrides) */
+[data-bs-theme="dark"] .card.bg-dark .form-label,
+[data-bs-theme="dark"] .card.bg-dark label,
+[data-bs-theme="dark"] .card.bg-dark .text-muted,
+[data-bs-theme="dark"] .bg-dark .text-muted {
+    color: #adb5bd !important;
+}
+
+/* Table thead and table body inside dark tables — readable in both themes */
+.table-dark,
+[data-bs-theme="light"] .table-dark {
+    --bs-table-bg: #212529 !important;
+    --bs-table-color: #f8f9fa !important;
+    color: #f8f9fa !important;
+    background-color: #212529 !important;
+}
+
+.table-dark th,
+.table-dark td,
+[data-bs-theme="light"] .table-dark th,
+[data-bs-theme="light"] .table-dark td {
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+/* Fix text-muted inside table-dark so it is visible on the dark background */
+.table-dark .text-muted,
+[data-bs-theme="light"] .table-dark .text-muted {
+    color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .card-header h5 {
+    color: #f8f9fa !important;
+}
+
+[data-bs-theme="light"] .card-header h5 {
+    color: #2c3e50 !important;
+}
+
+/* Light theme: form inputs should be light, UNLESS inside dark cards */
+[data-bs-theme="light"] .form-control:not(.bg-dark),
+[data-bs-theme="light"] .form-select:not(.bg-dark),
+[data-bs-theme="light"] textarea:not(.bg-dark) {
+    background-color: #ffffff !important;
+    color: #1a202c !important;
+    border-color: #e2e8f0 !important;
+}
+
+[data-bs-theme="light"] .form-control:not(.bg-dark)::placeholder,
+[data-bs-theme="light"] textarea:not(.bg-dark)::placeholder {
+    color: #adb5bd !important;
+}
+
+/* Ensure inputs explicitly styled as .bg-dark or inside .bg-dark cards stay dark regardless of theme */
+.card.bg-dark .form-control,
+.card.bg-dark .form-select,
+.card.bg-dark textarea,
+.table-dark .form-control,
+.table-dark .form-select,
+.form-control.bg-dark,
+.form-select.bg-dark,
+textarea.bg-dark {
+    background-color: #1f2937 !important;
+    color: #f8f9fa !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.card.bg-dark .form-control::placeholder,
+.card.bg-dark textarea::placeholder,
+.form-control.bg-dark::placeholder,
+textarea.bg-dark::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Fix Select2 inside dark containers */
+.bg-dark .select2-container--default .select2-selection--single,
+.table-dark .select2-container--default .select2-selection--single {
+    background-color: #1f2937 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.bg-dark .select2-container--default .select2-selection--single .select2-selection__rendered,
+.table-dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #f8f9fa !important;
+}
+
+/* Dark theme: ALL form inputs should be dark */
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select,
+[data-bs-theme="dark"] textarea {
+    background-color: #1f2937 !important;
+    color: #f8f9fa !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] .form-control::placeholder,
+[data-bs-theme="dark"] textarea::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Dropdown theme support */
+[data-bs-theme="light"] .dropdown-menu {
+    background-color: #ffffff !important;
+    border-color: #dee2e6 !important;
+}
+
+[data-bs-theme="light"] .dropdown-item {
+    color: #212529 !important;
+}
+
+[data-bs-theme="light"] .dropdown-item:hover {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+}
+
+[data-bs-theme="light"] .dropdown-header {
+    color: #6c757d !important;
+}
+
+/* Footer theme support */
+[data-bs-theme="light"] footer.bg-dark {
+    background-color: #e9ecef !important;
+}
+
+[data-bs-theme="light"] footer.bg-dark .text-light {
+    color: #212529 !important;
+}

@@ -1,0 +1,44 @@
+# MJR Group ERP - Apache Configuration
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Set correct base path (important!)
+RewriteBase /MJR/public/
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive directories
+RewriteRule ^(config|includes|templates|logs)/ - [F,L]
+
+# Allow existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route all other requests to index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# PHP Settings
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_value max_execution_time 300
+    php_value memory_limit 256M
+    php_value upload_max_filesize 10M
+    php_value post_max_size 12M
+</IfModule>
+
+# Cache Control for Static Assets
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf)$">
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresDefault "access plus 1 month"
+    </IfModule>
+</FilesMatch>

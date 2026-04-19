@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+Microsoft/
+
+# Environment / secrets
+.env
+*.env
+includes/email_config.php
+
+# Logs
+logs/
+error_log
+*.log
+
+# Dependencies
+vendor/
+node_modules/
+
+# Build / cache
+.cache/
+.tmp/
+
+# Archives
+*.zip

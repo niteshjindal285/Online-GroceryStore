@@ -1,0 +1,102 @@
+[
+  {
+    "id": "406079",
+    "name": "Super Saver Desi Toor / Arhar Dal) - 1 Kg",
+    "price": 89,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768493224295U4A92E33FD_1.png",
+    "rating": 4.1,
+    "discount": 59,
+    "inStock": true
+  },
+  {
+    "id": "394716",
+    "name": "Super Saver Almond / Badam  - 500 Gm",
+    "price": 408,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255678:8E85208F2B_1.png",
+    "rating": 4.6,
+    "discount": 39,
+    "inStock": true
+  },
+  {
+    "id": "395788",
+    "name": "Rajbhog Makhana - 250 Gm",
+    "price": 299,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767609150487:01ACB0A0F9_1.png",
+    "rating": 4.3,
+    "discount": 50,
+    "inStock": true
+  },
+  {
+    "id": "394724",
+    "name": "Super Saver Cashew / Kaju - 500 Gm",
+    "price": 479,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768028255597:6FB612C11A_1.png",
+    "rating": 4.9,
+    "discount": 31,
+    "inStock": true
+  },
+  {
+    "id": "394329",
+    "name": "India Gate Mini Mogra 2 Basmati Rice (broken) - 10 Kg",
+    "price": 469,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1761741262715:1462BDC644_1.png",
+    "rating": 4.5,
+    "discount": 21,
+    "inStock": true
+  },
+  {
+    "id": "406393",
+    "name": "Prov Select Almond - 400 Gm",
+    "price": 319,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1768530392073LB4F94CDE7_1.png",
+    "rating": 4.1,
+    "discount": 46,
+    "inStock": true
+  },
+  {
+    "id": "402719",
+    "name": "Fortune Refined Soyabean Oil - 750 Gm",
+    "price": 131,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1757929561460:CF8B3C3EF3_1.png",
+    "rating": 4.4,
+    "discount": 15,
+    "inStock": true
+  },
+  {
+    "id": "393246",
+    "name": "Mishti Dhampur Premium Quality Sugar - 5 Kg",
+    "price": 240,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767358878300:B7CD19D974_1.png",
+    "rating": 4.6,
+    "discount": 23,
+    "inStock": true
+  },
+  {
+    "id": "401142",
+    "name": "Sampoorti Whole Wheat Chakki Atta - 10 Kg",
+    "price": 350,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767755158277:UF23B4C06A_1.png",
+    "rating": 4.1,
+    "discount": 22,
+    "inStock": true
+  },
+  {
+    "id": "404398",
+    "name": "Sampoorti Whole Wheat Chakki Atta - 5 Kg",
+    "price": 190,
+    "category": "grocery",
+    "image": "https://images.dealshare.in/1767755158844:Z01F69E67B_1.png",
+    "rating": 4.2,
+    "discount": 24,
+    "inStock": true
+  }
+]
