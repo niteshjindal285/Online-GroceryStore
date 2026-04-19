@@ -8,45 +8,34 @@ const auth = require('../middleware/auth');
 
 // --- Inventory Items (Products) ---
 
-// Get all inventory items (equivalent to inventory/index.php)
+// Get all inventory items
 router.get('/items', auth, async (req, res) => {
   try {
-    const { search, category, companyId } = req.query;
-    // Multi-company filtering logic from conversation history
-    const targetCompanyId = companyId || (req.user && req.user.companyId);
-    
-    const query = { company_id: targetCompanyId };
-    
+    const { search, category } = req.query;
+    const query = {};
+
     if (search) {
       query.$or = [
         { name: { $regex: search, $options: 'i' } },
-        { code: { $regex: search, $options: 'i' } },
-        { barcode: { $regex: search, $options: 'i' } }
+        { description: { $regex: search, $options: 'i' } }
       ];
     }
-    
+
     if (category) {
       query.category = category;
     }
 
-    const items = await Product.find(query)
-      .populate('category_id')
-      .populate('unit_id')
-      .populate('supplier_id');
-    
+    const items = await Product.find(query);
     res.json(items);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Create inventory item (create.php)
+// Create inventory item
 router.post('/items', auth, async (req, res) => {
   try {
-    const item = new Product({
-      ...req.body,
-      company_id: req.body.company_id || req.user.companyId
-    });
+    const item = new Product({ ...req.body });
     await item.save();
     res.status(201).json(item);
   } catch (err) {
@@ -54,7 +43,7 @@ router.post('/items', auth, async (req, res) => {
   }
 });
 
-// Update inventory item (edit.php)
+// Update inventory item
 router.put('/items/:id', auth, async (req, res) => {
   try {
     const item = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -80,7 +69,8 @@ router.delete('/items/:id', auth, async (req, res) => {
 router.get('/categories', auth, async (req, res) => {
   try {
     const targetCompanyId = req.query.companyId || (req.user && req.user.companyId);
-    const categories = await Category.find({ company_id: targetCompanyId });
+    const query = targetCompanyId ? { company_id: targetCompanyId } : {};
+    const categories = await Category.find(query);
     res.json(categories);
   } catch (err) {
     res.status(500).json({ error: err.message });

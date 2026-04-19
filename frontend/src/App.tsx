@@ -28,6 +28,7 @@ import CustomerManagement from './pages/CustomerManagement';
 import BillingPage from './pages/BillingPage';
 import BillingHistory from './pages/BillingHistory';
 import CompaniesManagement from './pages/CompaniesManagement';
+import InventoryDashboard from './pages/InventoryDashboard';
 
 function App() {
   return (
@@ -90,6 +91,11 @@ function App() {
                 <Route path="/erp/categories" element={
                   <ProtectedRoute requiredRole="admin">
                     <CategoryManagement />
+                  </ProtectedRoute>
+                } />
+                <Route path="/erp/inventory" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <InventoryDashboard />
                   </ProtectedRoute>
                 } />
                 <Route path="/erp/customers" element={

@@ -7,7 +7,8 @@ const auth = require('../middleware/auth');
 router.get('/', auth, async (req, res) => {
   try {
     const targetCompanyId = req.query.companyId || (req.user && req.user.companyId);
-    const suppliers = await Supplier.find({ company_id: targetCompanyId });
+    const query = targetCompanyId ? { company_id: targetCompanyId } : {};
+    const suppliers = await Supplier.find(query);
     res.json(suppliers);
   } catch (err) {
     res.status(500).json({ error: err.message });
