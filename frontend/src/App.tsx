@@ -37,102 +37,102 @@ function App() {
         <CartProvider>
           <ToastProvider>
             <Router basename="/Online-GroceryStore">
-          <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
-            <Navbar />
-            <main className="pb-16">
-              <Routes>
-                <Route path="/" element={<Navigate to="/home" replace />} />
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/signup" element={<SignupPage />} />
-                <Route path="/products/:id" element={<ProductDetail />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/about" element={<AboutPage />} />
+              <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
+                <Navbar />
+                <main className="pb-16">
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/home" replace />} />
+                    <Route path="/home" element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/signup" element={<SignupPage />} />
+                    <Route path="/products/:id" element={<ProductDetail />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/about" element={<AboutPage />} />
 
-                {/* Protected Routes */}
-                <Route path="/dashboard" element={
-                  <ProtectedRoute>
-                    <UserDashboard />
-                  </ProtectedRoute>
-                } />
-                <Route path="/checkout" element={
-                  <ProtectedRoute requiredRole="customer">
-                    <CheckoutPage />
-                  </ProtectedRoute>
-                } />
-                <Route path="/orders" element={
-                  <ProtectedRoute>
-                    <OrderHistory />
-                  </ProtectedRoute>
-                } />
-                <Route path="/orders/:id" element={
-                  <ProtectedRoute>
-                    <OrderDetails />
-                  </ProtectedRoute>
-                } />
-                <Route path="/profile" element={
-                  <ProtectedRoute>
-                    <UserProfile />
-                  </ProtectedRoute>
-                } />
-                <Route path="/admin" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                } />
-                <Route path="/vendor" element={
-                  <ProtectedRoute requiredRole="vendor">
-                    <VendorDashboard />
-                  </ProtectedRoute>
-                } />
+                    {/* Protected Routes */}
+                    <Route path="/dashboard" element={
+                      <ProtectedRoute>
+                        <UserDashboard />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/checkout" element={
+                      <ProtectedRoute requiredRole="customer">
+                        <CheckoutPage />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/orders" element={
+                      <ProtectedRoute>
+                        <OrderHistory />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/orders/:id" element={
+                      <ProtectedRoute>
+                        <OrderDetails />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/profile" element={
+                      <ProtectedRoute>
+                        <UserProfile />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/admin" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <AdminDashboard />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/vendor" element={
+                      <ProtectedRoute requiredRole="vendor">
+                        <VendorDashboard />
+                      </ProtectedRoute>
+                    } />
 
-                {/* ERP Routes */}
-                <Route path="/erp/categories" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <CategoryManagement />
-                  </ProtectedRoute>
-                } />
-                <Route path="/erp/inventory" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <InventoryDashboard />
-                  </ProtectedRoute>
-                } />
-                <Route path="/erp/customers" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <CustomerManagement />
-                  </ProtectedRoute>
-                } />
-                <Route path="/erp/suppliers" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <SupplierManagement />
-                  </ProtectedRoute>
-                } />
-                <Route path="/erp/billing" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <BillingPage />
-                  </ProtectedRoute>
-                } />
-                <Route path="/erp/billing-history" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <BillingHistory />
-                  </ProtectedRoute>
-                } />
-                <Route path="/erp/companies" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <CompaniesManagement />
-                  </ProtectedRoute>
-                } />
+                    {/* ERP Routes */}
+                    <Route path="/erp/categories" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <CategoryManagement />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/erp/inventory" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <InventoryDashboard />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/erp/customers" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <CustomerManagement />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/erp/suppliers" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <SupplierManagement />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/erp/billing" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <BillingPage />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/erp/billing-history" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <BillingHistory />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/erp/companies" element={
+                      <ProtectedRoute requiredRole="admin">
+                        <CompaniesManagement />
+                      </ProtectedRoute>
+                    } />
 
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </Router>
-        </ToastProvider>
-      </CartProvider>
-    </AuthProvider>
+                    <Route path="*" element={<NotFoundPage />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
+            </Router>
+          </ToastProvider>
+        </CartProvider>
+      </AuthProvider>
     </ErrorBoundary>
   );
 }

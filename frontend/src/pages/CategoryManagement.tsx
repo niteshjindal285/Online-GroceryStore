@@ -99,10 +99,11 @@ const CategoryManagement: React.FC = () => {
         }
     };
 
-    const filteredCategories = categories.filter(c => 
-        c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (c.description && c.description.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    const filteredCategories = categories.filter(c => {
+        const nameMatch = (c.name || '').toLowerCase().includes(searchTerm.toLowerCase());
+        const descMatch = (c.description || '').toLowerCase().includes(searchTerm.toLowerCase());
+        return nameMatch || descMatch;
+    });
 
     if (loading && categories.length === 0) {
         return (

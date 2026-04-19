@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import api from '../api/config';
-import { 
-    Plus, Search, Edit2, Trash2, Users, 
-    X, Loader2, Phone, Mail, MapPin, Building2 
+import {
+    Plus, Search, Edit2, Trash2, Users,
+    X, Loader2, Phone, Mail, MapPin, Building2
 } from 'lucide-react';
 import { useToast } from '../contexts/ToastContext';
 
@@ -26,7 +26,7 @@ const CustomerManagement: React.FC = () => {
     const [customers, setCustomers] = useState<Customer[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
-    
+
     // Modal State
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -131,7 +131,7 @@ const CustomerManagement: React.FC = () => {
         }
     };
 
-    const filteredCustomers = customers.filter(c => 
+    const filteredCustomers = customers.filter(c =>
         c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         c.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (c.phone && c.phone.includes(searchTerm))
@@ -157,7 +157,7 @@ const CustomerManagement: React.FC = () => {
                         </h1>
                         <p className="text-slate-500 mt-1">Manage your customer database and credit limits.</p>
                     </div>
-                    <button 
+                    <button
                         onClick={handleOpenAddModal}
                         className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors shadow-sm font-medium"
                     >
@@ -222,14 +222,14 @@ const CustomerManagement: React.FC = () => {
                                 </div>
 
                                 <div className="flex gap-2 pt-2 border-slate-50">
-                                    <button 
+                                    <button
                                         onClick={() => handleOpenEditModal(customer)}
                                         className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50 border border-slate-200 rounded-lg transition-all"
                                     >
                                         <Edit2 size={14} />
                                         Edit
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={() => handleDeleteCustomer(customer._id)}
                                         className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold text-red-600 hover:bg-red-50 border border-red-200 rounded-lg transition-all"
                                     >
@@ -244,7 +244,7 @@ const CustomerManagement: React.FC = () => {
                             <Users size={64} className="mx-auto text-slate-200 mb-4" />
                             <h3 className="text-lg font-bold text-slate-900">No Customers Found</h3>
                             <p className="text-slate-500 max-w-xs mx-auto mb-6">Your customer database is empty. Add your first customer to start billing.</p>
-                            <button 
+                            <button
                                 onClick={handleOpenAddModal}
                                 className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-bold transition-all shadow-lg shadow-indigo-600/20 hover:-translate-y-0.5"
                             >
@@ -278,7 +278,7 @@ const CustomerManagement: React.FC = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Customer Code</label>
-                                    <input 
+                                    <input
                                         type="text" required readOnly={!!editingCustomerId}
                                         className={`w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 font-mono text-sm ${editingCustomerId ? 'bg-slate-50 text-slate-500 cursor-not-allowed' : ''}`}
                                         value={formData.code}
@@ -287,8 +287,8 @@ const CustomerManagement: React.FC = () => {
                                 </div>
                                 <div>
                                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Full Name</label>
-                                    <input 
-                                        type="text" required 
+                                    <input
+                                        type="text" required
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm font-medium"
                                         placeholder="e.g. John Doe / Global Industries"
                                         value={formData.name}
@@ -302,8 +302,8 @@ const CustomerManagement: React.FC = () => {
                                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Email Address</label>
                                     <div className="relative">
                                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300" size={14} />
-                                        <input 
-                                            type="email" 
+                                        <input
+                                            type="email"
                                             className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm"
                                             placeholder="john@example.com"
                                             value={formData.email}
@@ -315,8 +315,8 @@ const CustomerManagement: React.FC = () => {
                                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Phone Number</label>
                                     <div className="relative">
                                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300" size={14} />
-                                        <input 
-                                            type="tel" 
+                                        <input
+                                            type="tel"
                                             className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm"
                                             placeholder="+91 XXXXX XXXXX"
                                             value={formData.phone}
@@ -329,30 +329,30 @@ const CustomerManagement: React.FC = () => {
                             <div className="space-y-4">
                                 <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1 -mb-2">Address Details</label>
                                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-4">
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm"
                                         placeholder="Street Address"
                                         value={formData.address}
                                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                     />
                                     <div className="grid grid-cols-3 gap-3">
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm"
                                             placeholder="City"
                                             value={formData.city}
                                             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                         />
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm"
                                             placeholder="State"
                                             value={formData.state}
                                             onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                                         />
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm"
                                             placeholder="Pin Code"
                                             value={formData.postal_code}
@@ -365,8 +365,8 @@ const CustomerManagement: React.FC = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Credit Limit (₹)</label>
-                                    <input 
-                                        type="number" required 
+                                    <input
+                                        type="number" required
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-sm font-bold"
                                         value={formData.credit_limit}
                                         onChange={(e) => setFormData({ ...formData, credit_limit: parseFloat(e.target.value) })}
@@ -374,7 +374,7 @@ const CustomerManagement: React.FC = () => {
                                 </div>
                                 <div>
                                     <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Account Status</label>
-                                    <select 
+                                    <select
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 bg-white text-sm font-medium"
                                         value={formData.is_active ? 'true' : 'false'}
                                         onChange={(e) => setFormData({ ...formData, is_active: e.target.value === 'true' })}
@@ -386,13 +386,13 @@ const CustomerManagement: React.FC = () => {
                             </div>
 
                             <div className="pt-4 flex gap-3">
-                                <button 
+                                <button
                                     type="button" onClick={() => setIsModalOpen(false)}
                                     className="flex-1 py-2.5 text-sm font-bold text-slate-500 hover:bg-slate-50 border border-slate-200 rounded-xl transition-colors"
                                 >
                                     Cancel
                                 </button>
-                                <button 
+                                <button
                                     type="submit" disabled={isSubmitting}
                                     className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2 shadow-xl shadow-indigo-600/30 hover:-translate-y-0.5"
                                 >

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { 
-  Building2, Users, Plus, Edit, Trash2, X, 
-  Search, ChevronRight, AlertCircle, 
+import {
+  Building2, Users, Plus, Edit, Trash2, X,
+  Search, ChevronRight, AlertCircle,
   Briefcase, Shield, Settings, Loader2
 } from 'lucide-react';
 import api from '../api/config';
@@ -29,7 +29,7 @@ const CompaniesManagement: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  
+
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCompany, setEditingCompany] = useState<Company | null>(null);
@@ -106,18 +106,18 @@ const CompaniesManagement: React.FC = () => {
         await api.put(`/companies/${editingCompany._id}`, dataToSave);
         // Also update manager if changed
         if (formData.managerId) {
-          await api.put(`/companies/${editingCompany._id}/users`, { 
-            userId: formData.managerId, 
-            asManager: true 
+          await api.put(`/companies/${editingCompany._id}/users`, {
+            userId: formData.managerId,
+            asManager: true
           });
         }
         showToast('Company updated successfully', 'success');
       } else {
         const res = await api.post('/companies', dataToSave);
         if (formData.managerId) {
-          await api.put(`/companies/${res.data._id}/users`, { 
-            userId: formData.managerId, 
-            asManager: true 
+          await api.put(`/companies/${res.data._id}/users`, {
+            userId: formData.managerId,
+            asManager: true
           });
         }
         showToast('Company created successfully', 'success');
@@ -129,8 +129,8 @@ const CompaniesManagement: React.FC = () => {
     }
   };
 
-  const filteredCompanies = companies.filter(c => 
-    c.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+  const filteredCompanies = companies.filter(c =>
+    c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     c.code.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -146,7 +146,7 @@ const CompaniesManagement: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f8fafc] p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
@@ -162,8 +162,8 @@ const CompaniesManagement: React.FC = () => {
               Companies Management
             </h1>
           </div>
-          
-          <button 
+
+          <button
             onClick={handleOpenAdd}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
           >
@@ -175,8 +175,8 @@ const CompaniesManagement: React.FC = () => {
         <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm mb-6 flex flex-col sm:flex-row gap-4 items-center justify-between">
           <div className="relative w-full sm:w-96">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Search companies by name or code..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -184,7 +184,7 @@ const CompaniesManagement: React.FC = () => {
             />
           </div>
           <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-4 py-2 border border-dashed border-gray-200 rounded-xl">
-             Total: <span className="text-emerald-600 ml-1">{companies.length}</span>
+            Total: <span className="text-emerald-600 ml-1">{companies.length}</span>
           </div>
         </div>
 
@@ -238,24 +238,23 @@ const CompaniesManagement: React.FC = () => {
                       </div>
                     </td>
                     <td className="px-6 py-5">
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
-                        company.isActive 
-                          ? 'bg-emerald-50 text-emerald-700 border-emerald-100' 
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${company.isActive
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
                           : 'bg-rose-50 text-rose-700 border-rose-100'
-                      }`}>
-                         <span className={`w-1.5 h-1.5 rounded-full ${company.isActive ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-                         {company.isActive ? 'Active' : 'Deactivated'}
+                        }`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${company.isActive ? 'bg-emerald-500' : 'bg-rose-500'}`} />
+                        {company.isActive ? 'Active' : 'Deactivated'}
                       </span>
                     </td>
                     <td className="px-6 py-5 text-right">
                       <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button 
+                        <button
                           onClick={() => handleOpenEdit(company)}
                           className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-50 text-gray-400 hover:bg-emerald-50 hover:text-emerald-600 transition-all shadow-sm"
                         >
                           <Edit className="h-4 w-4" />
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleDelete(company._id)}
                           className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-50 text-gray-400 hover:bg-rose-50 hover:text-rose-600 transition-all shadow-sm"
                         >
@@ -299,7 +298,7 @@ const CompaniesManagement: React.FC = () => {
                   <p className="text-xs text-gray-400">Company registration and setup</p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 transition-colors"
               >
@@ -312,8 +311,8 @@ const CompaniesManagement: React.FC = () => {
                 <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 ml-1">Company Name</label>
                 <div className="relative">
                   <Briefcase className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     required
                     placeholder="e.g. Balaji Trading Company"
                     value={formData.name}
@@ -327,8 +326,8 @@ const CompaniesManagement: React.FC = () => {
                 <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 ml-1">Internal Code</label>
                 <div className="relative">
                   <Shield className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     required
                     placeholder="e.g. BTC-MAIN"
                     value={formData.code}
@@ -342,7 +341,7 @@ const CompaniesManagement: React.FC = () => {
                 <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 ml-1">Assign Manager</label>
                 <div className="relative">
                   <Settings className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <select 
+                  <select
                     value={formData.managerId}
                     onChange={(e) => setFormData({ ...formData, managerId: e.target.value })}
                     className="w-full pl-10 pr-10 py-3 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm appearance-none cursor-pointer transition-all"
@@ -357,11 +356,11 @@ const CompaniesManagement: React.FC = () => {
 
               <div className="pt-2">
                 <label className="relative inline-flex items-center cursor-pointer group">
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     checked={formData.isActive}
                     onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                    className="sr-only peer" 
+                    className="sr-only peer"
                   />
                   <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500 group-hover:shadow-[0_0_0_4px_rgba(16,185,129,0.1)] transition-all"></div>
                   <span className="ml-3 text-sm font-bold text-gray-500 group-hover:text-emerald-700 transition-colors">Active Business Entity</span>
@@ -369,14 +368,14 @@ const CompaniesManagement: React.FC = () => {
               </div>
 
               <div className="pt-6 flex gap-3">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setIsModalOpen(false)}
                   className="flex-1 px-4 py-3 border border-gray-100 text-gray-500 font-bold rounded-2xl hover:bg-gray-50 transition-colors text-sm"
                 >
                   Cancel
                 </button>
-                <button 
+                <button
                   type="submit"
                   className="flex-1 px-4 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold rounded-2xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all text-sm"
                 >

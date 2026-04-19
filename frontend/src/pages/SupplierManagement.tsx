@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import api from '../api/config';
-import { 
-    Plus, Search, Mail, Phone, MapPin, Edit2, 
-    Trash2, Truck, User, X, Loader2 
+import {
+    Plus, Search, Mail, Phone, MapPin, Edit2,
+    Trash2, Truck, User, X, Loader2
 } from 'lucide-react';
 import { useToast } from '../contexts/ToastContext';
 
@@ -22,7 +22,7 @@ const SupplierManagement = () => {
     const [suppliers, setSuppliers] = useState<Supplier[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
-    
+
     // Modal State
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,7 +114,7 @@ const SupplierManagement = () => {
         }
     };
 
-    const filteredSuppliers = suppliers.filter(s => 
+    const filteredSuppliers = suppliers.filter(s =>
         s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         s.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
         s.email?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -140,7 +140,7 @@ const SupplierManagement = () => {
                         </h1>
                         <p className="text-slate-500 mt-1">Manage your vendors and procurement partners.</p>
                     </div>
-                    <button 
+                    <button
                         onClick={handleOpenAddModal}
                         className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors shadow-sm font-medium"
                     >
@@ -205,14 +205,14 @@ const SupplierManagement = () => {
                                 </div>
 
                                 <div className="flex border-t border-slate-100 pt-4 gap-2">
-                                    <button 
+                                    <button
                                         onClick={() => handleOpenEditModal(supplier)}
                                         className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
                                     >
                                         <Edit2 size={14} />
                                         Edit
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={() => handleDeleteSupplier(supplier._id)}
                                         className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                                     >
@@ -254,8 +254,8 @@ const SupplierManagement = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Supplier Name</label>
-                                    <input 
-                                        type="text" required 
+                                    <input
+                                        type="text" required
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                                         placeholder="e.g. Balaji Trading"
                                         value={formData.name}
@@ -264,8 +264,8 @@ const SupplierManagement = () => {
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Supplier Code</label>
-                                    <input 
-                                        type="text" required 
+                                    <input
+                                        type="text" required
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                                         placeholder="e.g. BTC-001"
                                         value={formData.code}
@@ -277,7 +277,7 @@ const SupplierManagement = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Contact Person</label>
-                                    <input 
+                                    <input
                                         type="text"
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                                         placeholder="Niteshwar Jindal"
@@ -287,7 +287,7 @@ const SupplierManagement = () => {
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Status</label>
-                                    <select 
+                                    <select
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 bg-white"
                                         value={formData.is_active ? 'true' : 'false'}
                                         onChange={(e) => setFormData({ ...formData, is_active: e.target.value === 'true' })}
@@ -301,7 +301,7 @@ const SupplierManagement = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Email</label>
-                                    <input 
+                                    <input
                                         type="email"
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                                         placeholder="vendor@example.com"
@@ -311,7 +311,7 @@ const SupplierManagement = () => {
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Phone</label>
-                                    <input 
+                                    <input
                                         type="tel"
                                         className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                                         placeholder="+91 8107205038"
@@ -323,7 +323,7 @@ const SupplierManagement = () => {
 
                             <div>
                                 <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Address</label>
-                                <textarea 
+                                <textarea
                                     rows={3}
                                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 resize-none"
                                     placeholder="Enter full address..."
@@ -333,13 +333,13 @@ const SupplierManagement = () => {
                             </div>
 
                             <div className="pt-4 flex gap-3">
-                                <button 
+                                <button
                                     type="button" onClick={() => setIsModalOpen(false)}
                                     className="flex-1 py-2 text-sm font-bold text-slate-500 hover:bg-slate-50 border border-slate-200 rounded-lg transition-colors"
                                 >
                                     Cancel
                                 </button>
-                                <button 
+                                <button
                                     type="submit" disabled={isSubmitting}
                                     className="flex-1 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/20"
                                 >
